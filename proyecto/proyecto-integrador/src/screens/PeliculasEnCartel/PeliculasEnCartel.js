@@ -1,15 +1,57 @@
-import React from "react";
+import React, {Component} from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import Filtro from "../../components/Filtro/Filtro";
 
 
-function PeliculasEnCartel() {
-    return(
-        <React.Fragment>
-            <Header/>
-            <Footer/>
-       </React.Fragment>
-    )
+class PeliculasEnCartel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      peliculas: [],
+      peliculasFiltradas: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1")
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          peliculas: data.results,
+          peliculasFiltradas: data.results,
+        });
+      });
+  }
+
+  filtrarPeliculas = (valorInput) => {
+    const filtradas = this.state.peliculas.filter((pelicula) =>
+      pelicula.title.toLowerCase().includes(valorInput.toLowerCase())
+    );
+    this.setState({ peliculasFiltradas: filtradas });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <Header />
+        <h1>Películas en Cartel</h1>
+        <Filtro filtro={this.filtrarPeliculas} />
+        <div>
+          {this.state.peliculasFiltradas.map((pelicula) => (
+            <div key={pelicula.id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w200${pelicula.poster_path}`}
+                alt={pelicula.title}
+              />
+              <h3>{pelicula.title}</h3>
+            </div>
+          ))}
+        </div>
+        <Footer />
+      </React.Fragment>
+    );
+  }
 }
 
 export default PeliculasEnCartel;
