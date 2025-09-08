@@ -10,7 +10,6 @@ function Home() {
     return(
         <React.Fragment>
             <Header/>
-                <p>Home</p>
                 <SectionCartelera/>
                 <SectionPopulares/>
             <Footer/>
