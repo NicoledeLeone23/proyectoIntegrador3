@@ -27,8 +27,12 @@ class Header extends Component {
                 </div>
 
                 <form onSubmit = {(event) => this.evitarSubmit(event)}>
-                    <label> Buscar: </label>
-                    <input type="text" onChange={(event) => this.controlarCambios(event)} value="{this.state.termino}" />
+                    <input
+                        type="text"
+                        value={this.state.termino}
+                        onChange={(event) => this.controlarCambios(event)}
+                    />
+                    <button type="submit">Buscar</button>
                 </form>
             </header>
         )
