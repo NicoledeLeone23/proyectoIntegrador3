@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import PopularCard from "../PopularCard/PopularCard";
+import PeliculaCard from "../PeliculaCard/PeliculaCard";
 import "./PopularesStyles.css";
 
 class SectionPopulares extends Component{
@@ -25,7 +25,7 @@ class SectionPopulares extends Component{
         } else {
           const cards = [];
           for (let i = 0; i < 4; i++) {
-            cards.push(<PopularCard key={this.state.data[i].id} pelicula={this.state.data[i]} />);
+            cards.push(<PeliculaCard key={this.state.data[i].id} pelicula={this.state.data[i]} />);
           }
           contenido = cards;
         }

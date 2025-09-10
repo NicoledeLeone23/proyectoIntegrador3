@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class PeliCarteleraCard extends Component {
+class PeliculaCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +18,7 @@ class PeliCarteleraCard extends Component {
   };
 
   render() {
+
     return (
       <article className="character-card">
         <img
@@ -47,4 +48,4 @@ class PeliCarteleraCard extends Component {
   }
 }
 
-export default PeliCarteleraCard;
+export default PeliculaCard;
