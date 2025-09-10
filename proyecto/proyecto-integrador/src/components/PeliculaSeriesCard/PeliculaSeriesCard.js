@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class PeliculaCard extends Component {
+class PeliculaSeriesCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,10 +23,10 @@ class PeliculaCard extends Component {
       <article className="character-card">
         <img
           src={`https://image.tmdb.org/t/p/w342${this.props.pelicula.poster_path}`}
-          alt={this.props.pelicula.title}
+          alt={this.props.pelicula.title || this.props.pelicula.name}   
         />
 
-        <h2>{this.props.pelicula.title}</h2>
+        <h2>{this.props.pelicula.title || this.props.pelicula.name}</h2> 
 
         <p className="more" onClick={this.mostrarDescripcion}>
           {this.state.verDescripcion ? "Ver menos" : "Ver descripción"}
@@ -37,7 +37,7 @@ class PeliculaCard extends Component {
         </section>
 
         <p className="more">
-          <a href={`/movie/${this.props.pelicula.id}`}>Ir a detalle</a>
+          <a href={`/${this.props.pelicula.id}`}>Ir a detalle</a>
         </p>
 
         <p className="delete" onClick={this.favorita}>
@@ -48,4 +48,4 @@ class PeliculaCard extends Component {
   }
 }
 
-export default PeliculaCard;
+export default PeliculaSeriesCard;

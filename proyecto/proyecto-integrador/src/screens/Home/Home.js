@@ -2,16 +2,21 @@ import React from "react";
 import "./HomeStyles.css"
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import SectionCartelera from "../../components/SectionCartelera/SectionCartelera";
-import SectionPopulares from "../../components/SectionPopulares/SectionPopulares";
+import PeliculasCartelera from "../../components/PeliculasCartelera/PeliculasCartelera";
+import PeliculasPopulares from "../../components/PeliculasPopulares/PeliculasPopulares";
+import PopularSeries from "../../components/PopularSeries/PopularSeries";
+import TopRatedSeries from "../../components/TopRatedSeries/TopRatedSeries";
 
 
 function Home() {
     return(
         <React.Fragment>
             <Header/>
-                <SectionCartelera/>
-                <SectionPopulares/>
+                <PeliculasCartelera/>
+                <PeliculasPopulares/>
+                <PopularSeries/>
+                <TopRatedSeries/>
+                
             <Footer/>
        </React.Fragment>
     )

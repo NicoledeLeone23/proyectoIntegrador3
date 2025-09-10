@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import PeliculaCard from "../PeliculaCard/PeliculaCard";
+import PeliculaSeriesCard from "../PeliculaSeriesCard/PeliculaSeriesCard";
 import "./CarteleraStyles.css";
 
-class SectionCartelera extends Component {
+class PeliculasCartelera extends Component {
   constructor(props) {
     super(props);
     this.state = { data: "" };
@@ -23,7 +23,7 @@ class SectionCartelera extends Component {
     } else {
       const cards = [];
       for (let i = 0; i < 4; i++) {
-        cards.push(<PeliculaCard key={this.state.data[i].id} pelicula={this.state.data[i]} />);
+        cards.push(<PeliculaSeriesCard key={this.state.data[i].id} pelicula={this.state.data[i]} />);
       }
       contenido = cards;
     }
@@ -38,4 +38,4 @@ class SectionCartelera extends Component {
   }
 }
 
-export default SectionCartelera;
+export default PeliculasCartelera;
