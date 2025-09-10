@@ -33,7 +33,7 @@ class PopularSeries extends Component{
         return (
             <section className="cardContainer populares">
               <h2> Series Populares</h2>
-              <a className="see-all" href="/popular"> Ver todas </a>
+              <a className="see-all" href="/ver-todos?tipo=series"> Ver todas </a>
               {contenido}
             </section>
           );
