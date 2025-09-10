@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
 
-class SeriesPopulares extends Component {
+class TopSeriesRated extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ class SeriesPopulares extends Component {
   }
 
   componentDidMount() {
-    fetch("https://api.themoviedb.org/3/tv/popular?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1")
+    fetch("https://api.themoviedb.org/3/tv/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1")
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -34,7 +34,7 @@ class SeriesPopulares extends Component {
     return (
       <React.Fragment>
         <Header />
-        <h1>Series Populares</h1>
+        <h1>Series Mejor Valoradas</h1>
         <Filtro filtro={this.filtrarSeries} />
         <div>
           {this.state.seriesFiltradas.map((serie) => (
@@ -53,4 +53,4 @@ class SeriesPopulares extends Component {
   }
 }
 
-export default SeriesPopulares;
+export default TopSeriesRated;

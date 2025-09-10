@@ -5,8 +5,8 @@ import PeliculasEnCartel from "./screens/PeliculasEnCartel/PeliculasEnCartel";
 import PeliculasPopulares from "./screens/PeliculasPopulares/PeliculasPopulares";
 import UnaPelicula from "./screens/UnaPelicula/UnaPelicula";
 import UnaSerie from "./screens/UnaSerie/UnaSerie";
+import TopSeriesRated from "./screens/TopSeriesRated/TopSeriesRated";
 import SeriesPopulares from "./screens/SeriesPopulares/SeriesPopulares";
-import TopRatedSeries from "./components/TopRatedSeries/TopRatedSeries";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       <Route path= "/peliculasencartel" component={PeliculasEnCartel}/>
       <Route path= "/peliculaspopulares" component={PeliculasPopulares}/>
       <Route path= "/seriespopulares" component={SeriesPopulares} />
-      <Route path= "/topratedseries" component ={TopRatedSeries}/>
+      <Route path= "/topratedseries" component ={TopSeriesRated}/>
       <Route path= "/pelicula/id/:id" component={UnaPelicula}/>
       <Route path= "/serie/id/:id" component={UnaSerie}/>
     </Switch>
