@@ -46,7 +46,7 @@ class VerTodas extends Component {
     }
 
     return (
-      <section className="cardContainer">
+      <section>
         {contenido}
       </section>
     );
