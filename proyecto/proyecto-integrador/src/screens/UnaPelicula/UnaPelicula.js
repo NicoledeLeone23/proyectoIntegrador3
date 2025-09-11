@@ -13,18 +13,16 @@ class UnaPelicula extends Component {
 
       };
     }
-  
-     componentDidMount() {
-        let id = this.props.match.params.id;
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=...&language=es-ES`)
 
-        .then((res) => res.json())
-        .then((data) => {
-        this.setState({
-            data: data
-        });
-      });
-  }
+    componentDidMount() {
+      const { id } = this.props.match.params; 
+      fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES`)
+        .then(res => res.json())
+        .then(data => this.setState({ data }));
+    }
+  
+  
+    
   
   
   
@@ -32,7 +30,8 @@ class UnaPelicula extends Component {
       return (
         <React.Fragment>
           <Header />
-          {console.log(this.state.data)} 
+          <MovieDetail data={this.state.data} />
+          
           <Footer />
         </React.Fragment>
       );

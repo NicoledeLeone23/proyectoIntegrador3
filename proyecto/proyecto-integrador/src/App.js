@@ -19,7 +19,7 @@ function App() {
       <Route path= "/seriespopulares" component={SeriesPopulares} />
       <Route path= "/topratedseries" component ={TopSeriesRated}/>
       <Route path= "/favoritas" />
-      <Route path= "/pelicula/id/:id" component={UnaPelicula}/>
+      <Route path= "/pelicula/:id" component={UnaPelicula}/>
       <Route path= "/serie/id/:id" component={UnaSerie}/>
       <Route path= "/" component={NotFound}/>
     </Switch>
