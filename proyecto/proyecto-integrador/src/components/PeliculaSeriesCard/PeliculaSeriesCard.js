@@ -20,14 +20,21 @@ class PeliculaSeriesCard extends Component {
 
   render() {
 
+    let titulo;
+    if (this.props.pelicula.title) {
+      titulo = this.props.pelicula.title;
+    } else {
+      titulo = this.props.pelicula.name;
+    }
+
     return (
       <article className="character-card">
         <img
           src={`https://image.tmdb.org/t/p/w342${this.props.pelicula.poster_path}`}
-          alt={this.props.pelicula.title || this.props.pelicula.name}   
+          alt={titulo}   
         />
 
-        <h2>{this.props.pelicula.title || this.props.pelicula.name}</h2> 
+        <h2>{titulo}</h2> 
 
         <p className="more" onClick={this.mostrarDescripcion}>
           {this.state.verDescripcion ? "Ver menos" : "Ver descripción"}
