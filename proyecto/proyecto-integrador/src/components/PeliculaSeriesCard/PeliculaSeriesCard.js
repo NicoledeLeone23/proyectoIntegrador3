@@ -19,20 +19,20 @@ class PeliculaSeriesCard extends Component {
   };
 
  render() {
-    const pelicula = this.props.pelicula;
+    const item = this.props.item;
 
     let titulo;
-      if (pelicula.title) {
-  titulo = pelicula.title;
+      if (item.title) {
+  titulo = item.title; //referencia a peliculas
   } else {
-  titulo = pelicula.name; 
+  titulo = item.name; // referencia a series 
 }
 
 
     return (
       <article className="character-card">
         <img
-          src={`https://image.tmdb.org/t/p/w342${pelicula.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
           alt={titulo}
         />
 
@@ -44,12 +44,12 @@ class PeliculaSeriesCard extends Component {
 
         {this.state.verDescripcion && (
           <section>
-            <p>{pelicula.overview ? pelicula.overview : "Sin descripción."}</p>
+            <p>{item.overview ? item.overview : "Sin descripción."}</p>
           </section>
         )}
 
         <p className="more">
-          <Link to={`/pelicula/${pelicula.id}`}>Ir a detalle</Link>
+          <Link to={`/pelicula/${item.id}`}>Ir a detalle</Link>
         </p>
 
         <p className="delete" onClick={this.favorita}>

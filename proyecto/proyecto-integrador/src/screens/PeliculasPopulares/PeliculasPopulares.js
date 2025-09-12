@@ -69,7 +69,7 @@ class PeliculasPopulares extends Component {
           {this.state.peliculasFiltradas.map((unaPelicula) => (
   <PeliculaSeriesCard 
     key={unaPelicula.id} 
-    pelicula={unaPelicula} 
+    item={unaPelicula} 
   />
 ))}
         <Footer />

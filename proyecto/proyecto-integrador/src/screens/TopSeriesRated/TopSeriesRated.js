@@ -68,7 +68,7 @@ class TopSeriesRated extends Component {
  {this.state.seriesFiltradas.map((unaSerie) => (
   <PeliculaSeriesCard 
     key={unaSerie.id} 
-    pelicula={unaSerie}  // dice pelicula xq en PeliculaSerieCard uso ese nombre 
+    item={unaSerie}  
   />
         ))}
         <Footer />

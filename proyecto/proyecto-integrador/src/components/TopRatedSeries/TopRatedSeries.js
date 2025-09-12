@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PeliculaSeriesCard from "../PeliculaSeriesCard/PeliculaSeriesCard";
-
+import { Link } from "react-router-dom";
 
 class TopRatedSeries extends Component{
     constructor(props){
@@ -25,7 +25,7 @@ class TopRatedSeries extends Component{
         } else {
           const cards = [];
           for (let i = 0; i < 4; i++) {
-            cards.push(<PeliculaSeriesCard key={this.state.data[i].id} pelicula={this.state.data[i]} />);
+            cards.push(<PeliculaSeriesCard key={this.state.data[i].id} item={this.state.data[i]} />);
           }
           contenido = cards;
         }
@@ -33,7 +33,7 @@ class TopRatedSeries extends Component{
         return (
             <section className="cardContainer populares">
               <h2> Series Mejor Valoradas</h2>
-              <a className="see-all" href="/topratedseries"> Ver todas </a>
+              <Link className="see-all" to="/topratedseries">Ver todas</Link>
               {contenido}
             </section>
           );
