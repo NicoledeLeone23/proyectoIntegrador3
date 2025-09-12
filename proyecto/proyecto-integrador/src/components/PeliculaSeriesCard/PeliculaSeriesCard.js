@@ -25,7 +25,7 @@ class PeliculaSeriesCard extends Component {
       if (pelicula.title) {
   titulo = pelicula.title;
   } else {
-  titulo = pelicula.name;
+  titulo = pelicula.name; 
 }
 
 

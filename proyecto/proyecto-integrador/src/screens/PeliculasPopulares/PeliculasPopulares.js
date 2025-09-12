@@ -11,6 +11,8 @@ class PeliculasPopulares extends Component {
     this.state = {
       peliculas: [],
       peliculasFiltradas: [],
+      backupPeliculas: [],
+      paginaActual: 1
     };
   }
 
@@ -21,6 +23,8 @@ class PeliculasPopulares extends Component {
         this.setState({
           peliculas: data.results,
           peliculasFiltradas: data.results,
+          backupPeliculas: data.results,
+          paginaActual: 1
         });
       });
   }
@@ -32,12 +36,36 @@ class PeliculasPopulares extends Component {
     this.setState({ peliculasFiltradas: filtradas });
   };
 
+  
+  cargarMas = () => {
+    const siguientePagina = this.state.paginaActual + 1;
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
+      .then(resp => resp.json())
+      .then(data => {
+        
+        let nuevasBackup = this.state.backupPeliculas;
+        for (let i = 0; i < data.results.length; i++) {
+          nuevasBackup.push(data.results[i]);
+        }
+
+        this.setState({
+          peliculas: nuevasBackup,
+          peliculasFiltradas: nuevasBackup,
+          backupPeliculas: nuevasBackup,
+          paginaActual: siguientePagina
+        });
+      });
+  }
+
   render() {
     return (
       <React.Fragment>
         <Header />
         <h1>Películas Populares</h1>
         <Filtro filtro={this.filtrarPeliculas} />
+         <button onClick={this.cargarMas}>
+          Cargar más películas
+        </button>
           {this.state.peliculasFiltradas.map((unaPelicula) => (
   <PeliculaSeriesCard 
     key={unaPelicula.id} 
