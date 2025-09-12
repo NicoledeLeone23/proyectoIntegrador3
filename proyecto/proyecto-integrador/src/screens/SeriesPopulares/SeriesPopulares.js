@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
+import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
 
 class SeriesPopulares extends Component {
   constructor(props) {
@@ -9,6 +10,8 @@ class SeriesPopulares extends Component {
     this.state = {
       series: [],
       seriesFiltradas: [],
+      backupSeries: [],
+      paginaActual: 1
     };
   }
 
@@ -19,6 +22,8 @@ class SeriesPopulares extends Component {
         this.setState({
           series: data.results,
           seriesFiltradas: data.results,
+          backupSeries: data.results,
+          paginaActual: 1
         });
       });
   }
@@ -30,23 +35,45 @@ class SeriesPopulares extends Component {
     this.setState({ seriesFiltradas: filtradas });
   };
 
+  cargarMas = () => {
+    const siguientePagina = this.state.paginaActual + 1;
+    fetch(`https://api.themoviedb.org/3/tv/popular?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
+      .then(resp => resp.json())
+      .then(data => {
+        
+        let nuevasBackup = this.state.backupSeries;
+        for (let i = 0; i < data.results.length; i++) {
+          nuevasBackup.push(data.results[i]);
+        }
+
+        this.setState({
+          series: nuevasBackup,
+          seriesFiltradas: nuevasBackup,
+          backupSeries: nuevasBackup,
+          paginaActual: siguientePagina
+        });
+      });
+  }
+
+
+
+
   render() {
     return (
       <React.Fragment>
         <Header />
         <h1>Series Populares</h1>
         <Filtro filtro={this.filtrarSeries} />
-        <div>
-          {this.state.seriesFiltradas.map((serie) => (
-            <div key={serie.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w200${serie.poster_path}`}
-                alt={serie.name}
-              />
-              <h3>{serie.name}</h3>
-            </div>
-          ))}
-        </div>
+        <button onClick={this.cargarMas}>
+          Cargar más series
+        </button>
+ {this.state.seriesFiltradas.map((unaSerie) => (
+  <PeliculaSeriesCard 
+    key={unaSerie.id} 
+    item={unaSerie}  
+  />
+))}
+
         <Footer />
       </React.Fragment>
     );

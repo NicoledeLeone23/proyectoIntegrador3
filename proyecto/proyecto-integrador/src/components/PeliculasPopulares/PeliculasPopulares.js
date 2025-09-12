@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PeliculaSeriesCard from "../PeliculaSeriesCard/PeliculaSeriesCard";
 import "./PopularesStyles.css";
+import { Link } from "react-router-dom";
 
 class PeliculasPopulares extends Component{
     constructor(props){
@@ -25,7 +26,7 @@ class PeliculasPopulares extends Component{
         } else {
           const cards = [];
           for (let i = 0; i < 4; i++) {
-            cards.push(<PeliculaSeriesCard key={this.state.data[i].id} pelicula={this.state.data[i]} />);
+            cards.push(<PeliculaSeriesCard key={this.state.data[i].id} item={this.state.data[i]} />);
           }
           contenido = cards;
         }
@@ -33,7 +34,7 @@ class PeliculasPopulares extends Component{
         return (
             <section className="cardContainer populares">
               <h2>Películas Populares</h2>
-              <a className="see-all" href="/peliculaspopulares">Ver todas</a>
+              <Link className="see-all" to="/peliculaspopulares">Ver todas</Link>
               {contenido}
             </section>
           );

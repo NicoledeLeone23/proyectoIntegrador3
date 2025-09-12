@@ -8,6 +8,7 @@ import UnaSerie from "./screens/UnaSerie/UnaSerie";
 import TopSeriesRated from "./screens/TopSeriesRated/TopSeriesRated";
 import SeriesPopulares from "./screens/SeriesPopulares/SeriesPopulares";
 import NotFound from "./screens/NotFound/NotFound";
+import Resultado from "./screens/Resultado/Resultado";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path= "/peliculaspopulares" component={PeliculasPopulares}/>
       <Route path= "/seriespopulares" component={SeriesPopulares} />
       <Route path= "/topratedseries" component ={TopSeriesRated}/>
+      <Route path="/resultado/:busqueda" component={Resultado} />
       <Route path= "/favoritas" />
       <Route path= "/pelicula/:id" component={UnaPelicula}/>
       <Route path= "/serie/id/:id" component={UnaSerie}/>

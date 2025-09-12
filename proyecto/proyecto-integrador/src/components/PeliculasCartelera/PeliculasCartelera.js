@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PeliculaSeriesCard from "../PeliculaSeriesCard/PeliculaSeriesCard";
+import { Link } from "react-router-dom";
 import "./CarteleraStyles.css";
 
 class PeliculasCartelera extends Component {
@@ -23,7 +24,7 @@ class PeliculasCartelera extends Component {
     } else {
       const cards = [];
       for (let i = 0; i < 4; i++) {
-        cards.push(<PeliculaSeriesCard key={this.state.data[i].id} pelicula={this.state.data[i]} />);
+        cards.push(<PeliculaSeriesCard key={this.state.data[i].id} item={this.state.data[i]} />);
       }
       contenido = cards;
     }
@@ -31,7 +32,8 @@ class PeliculasCartelera extends Component {
     return (
         <section className="cardContainer cartelera">
           <h2>Películas en cartel</h2>
-          <a className="see-all" href="/peliculasencartel">Ver todas</a>
+          
+          <Link className="see-all" to="/peliculasencartel">Ver todas</Link>
           {contenido}
         </section>
     );
