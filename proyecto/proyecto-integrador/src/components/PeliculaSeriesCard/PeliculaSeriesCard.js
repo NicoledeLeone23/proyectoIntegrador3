@@ -18,35 +18,38 @@ class PeliculaSeriesCard extends Component {
     this.setState({ esFavorita: !this.state.esFavorita });
   };
 
-  render() {
+ render() {
+    const pelicula = this.props.pelicula;
 
     let titulo;
-    if (this.props.pelicula.title) {
-      titulo = this.props.pelicula.title;
-    } else {
-      titulo = this.props.pelicula.name;
-    }
+      if (pelicula.title) {
+  titulo = pelicula.title;
+  } else {
+  titulo = pelicula.name;
+}
+
 
     return (
       <article className="character-card">
         <img
-          src={`https://image.tmdb.org/t/p/w342${this.props.pelicula.poster_path}`}
-          alt={titulo}   
+          src={`https://image.tmdb.org/t/p/w342${pelicula.poster_path}`}
+          alt={titulo}
         />
 
-        <h2>{titulo}</h2> 
+        <h2>{titulo}</h2>
 
         <p className="more" onClick={this.mostrarDescripcion}>
           {this.state.verDescripcion ? "Ver menos" : "Ver descripción"}
         </p>
 
-        <section className={this.state.verDescripcion ? "show" : "hide"}>
-          <p>{this.props.pelicula.overview ? this.props.pelicula.overview : "Sin descripción."}</p>
-        </section>
+        {this.state.verDescripcion && (
+          <section>
+            <p>{pelicula.overview ? pelicula.overview : "Sin descripción."}</p>
+          </section>
+        )}
 
         <p className="more">
-          <Link to={"/pelicula/"+this.props.pelicula.id}>Ir a detalle</Link>
-
+          <Link to={`/pelicula/${pelicula.id}`}>Ir a detalle</Link>
         </p>
 
         <p className="delete" onClick={this.favorita}>

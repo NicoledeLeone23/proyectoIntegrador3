@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
-
+import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
 
 
 class PeliculasPopulares extends Component {
@@ -38,17 +38,12 @@ class PeliculasPopulares extends Component {
         <Header />
         <h1>Películas Populares</h1>
         <Filtro filtro={this.filtrarPeliculas} />
-        <div>
-          {this.state.peliculasFiltradas.map((pelicula) => (
-            <div key={pelicula.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w200${pelicula.poster_path}`}
-                alt={pelicula.title}
-              />
-              <h3>{pelicula.title}</h3>
-            </div>
-          ))}
-        </div>
+          {this.state.peliculasFiltradas.map((unaPelicula) => (
+  <PeliculaSeriesCard 
+    key={unaPelicula.id} 
+    pelicula={unaPelicula} 
+  />
+))}
         <Footer />
       </React.Fragment>
     );

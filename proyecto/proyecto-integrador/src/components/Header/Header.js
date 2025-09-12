@@ -41,7 +41,7 @@ class Header extends Component {
                     <Link className="nav-link" to="/seriespopulares">Series Populares</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/topratedseries">Top rated series</Link>
+                    <Link className="nav-link" to="/topratedseries">Series Mejor Valoradas</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/favoritas">Favoritas</Link>

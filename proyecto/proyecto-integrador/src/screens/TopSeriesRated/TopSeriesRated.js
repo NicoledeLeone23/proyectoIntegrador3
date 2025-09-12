@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
+import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
 
 class TopSeriesRated extends Component {
   constructor(props) {
@@ -36,17 +37,12 @@ class TopSeriesRated extends Component {
         <Header />
         <h1>Series Mejor Valoradas</h1>
         <Filtro filtro={this.filtrarSeries} />
-        <div>
-          {this.state.seriesFiltradas.map((serie) => (
-            <div key={serie.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w200${serie.poster_path}`}
-                alt={serie.name}
-              />
-              <h3>{serie.name}</h3>
-            </div>
-          ))}
-        </div>
+  {this.state.seriesFiltradas.map((unaSerie) => (
+          <PeliculaSeriesCard 
+            key={unaSerie.id} 
+            serie={unaSerie}   
+          />
+        ))}
         <Footer />
       </React.Fragment>
     );
