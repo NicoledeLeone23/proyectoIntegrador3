@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeaderStyles.css";
 import {Link} from "react-router-dom";
+import Buscador from "../Buscador/Buscador";
 
 
 function Header() {
@@ -31,6 +32,7 @@ function Header() {
                 
                 </ul>
                 <br />
+                <Buscador/>
          </nav>
         )
     };

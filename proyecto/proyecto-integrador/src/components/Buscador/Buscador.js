@@ -1,34 +1,35 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom"; // v5
 
 class Buscador extends Component {
   constructor(props) {
     super(props);
-    this.state = { input: "" };
+    this.state = {
+         input: ""
+     };
   }
 
-  controlarForm = (e) => {
-    e.preventDefault();
-    this.props.history.push('/results/' + this.state.input);
+  controlarForm = (evento) => {
+    evento.preventDefault();
+    this.props.history.push('/resultado/' + this.state.input);
   };
 
-  controlarInput = (e) => {
-    this.setState({ input: e.target.value });
+  controlarInput = (evento) => {
+    this.setState({ input: evento.target.value });
   };
 
   render() {
     return (
-      <form onSubmit={this.controlarForm} className="buscador-form">
+      <form onSubmit={this.controlarForm} >
         <input
           placeholder="Buscador"
           value={this.state.input}
           onChange={this.controlarInput}
           className="buscador-input"
         />
-        <button type="submit" className="buscador-boton">Buscar</button>
+        <button type="submit" >Buscar</button>
       </form>
     );
   }
 }
 
-export default withRouter(Buscador);
+export default Buscador;
