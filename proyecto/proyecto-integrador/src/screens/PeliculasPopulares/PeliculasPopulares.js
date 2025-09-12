@@ -39,7 +39,7 @@ class PeliculasPopulares extends Component {
   
   cargarMas = () => {
     const siguientePagina = this.state.paginaActual + 1;
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
       .then(resp => resp.json())
       .then(data => {
         
