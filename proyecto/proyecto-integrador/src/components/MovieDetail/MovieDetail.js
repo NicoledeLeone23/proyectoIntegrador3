@@ -25,7 +25,7 @@ class MovieDetail extends Component {
         <p><strong>Géneros:</strong></p>
         <ul>
         {movie.genres && movie.genres.length > 0
-            ? movie.genres.map((g) => <li key={g.id}>{g.name}</li>)
+            ? movie.genres.map((g,i) => <li key={g.i}>{g.name}</li>)
             : []}
         </ul>
 
