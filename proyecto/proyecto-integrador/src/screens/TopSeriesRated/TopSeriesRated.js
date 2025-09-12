@@ -37,11 +37,11 @@ class TopSeriesRated extends Component {
         <Header />
         <h1>Series Mejor Valoradas</h1>
         <Filtro filtro={this.filtrarSeries} />
-  {this.state.seriesFiltradas.map((unaSerie) => (
-          <PeliculaSeriesCard 
-            key={unaSerie.id} 
-            serie={unaSerie}   
-          />
+ {this.state.seriesFiltradas.map((unaSerie) => (
+  <PeliculaSeriesCard 
+    key={unaSerie.id} 
+    pelicula={unaSerie}  // dice pelicula xq en PeliculaSerieCard uso ese nombre 
+  />
         ))}
         <Footer />
       </React.Fragment>
