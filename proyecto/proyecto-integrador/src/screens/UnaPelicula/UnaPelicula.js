@@ -21,10 +21,9 @@ class UnaPelicula extends Component {
         .then(data => this.setState({ data }));
     }
   
+
   
-    
-  
-  
+
   
     render() {
       return (
