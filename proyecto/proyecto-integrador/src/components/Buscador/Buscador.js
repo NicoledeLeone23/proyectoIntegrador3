@@ -4,12 +4,16 @@ import { withRouter } from "react-router-dom"; // v5
 class Buscador extends Component {
   constructor(props) {
     super(props);
-    this.state = { input: "" };
+    this.state = {
+       input: ""
+    };
   }
 
   controlarForm = (e) => {
     e.preventDefault();
-    this.props.history.push('/results/' + this.state.input);
+    if (this.state.input !== "") {
+    this.props.history.push("/resultado/" + this.state.input);
+    }
   };
 
   controlarInput = (e) => {
@@ -23,7 +27,6 @@ class Buscador extends Component {
           placeholder="Buscador"
           value={this.state.input}
           onChange={this.controlarInput}
-          className="buscador-input"
         />
         <button type="submit" className="buscador-boton">Buscar</button>
       </form>
