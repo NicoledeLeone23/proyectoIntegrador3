@@ -11,9 +11,7 @@ class Buscador extends Component {
 
   controlarForm = (e) => {
     e.preventDefault();
-    if (this.state.input !== "") {
     this.props.history.push("/resultado/" + this.state.input);
-    }
   };
 
   controlarInput = (e) => {
@@ -22,13 +20,13 @@ class Buscador extends Component {
 
   render() {
     return (
-      <form onSubmit={this.controlarForm} className="buscador-form">
+      <form onSubmit={this.controlarForm}>
         <input
           placeholder="Buscador"
           value={this.state.input}
           onChange={this.controlarInput}
         />
-        <button type="submit" className="buscador-boton">Buscar</button>
+        <button type="submit" >Buscar</button>
       </form>
     );
   }
