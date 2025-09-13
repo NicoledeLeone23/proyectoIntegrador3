@@ -4,7 +4,6 @@ class MovieDetail extends Component {
   render() {
     
     const movie = this.props.data;
-
     
     if (!movie) return <p>Cargando...</p>;
 
@@ -17,7 +16,7 @@ class MovieDetail extends Component {
     return (
         <article className="character-card"> 
         <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.original_title} /> 
-        <h2>Titulo: {movie.original_title}</h2> 
+        <h2> {movie.original_title}</h2> 
         <p>Calificación: {movie.vote_average}</p>
         <p>Fecha de estreno: {movie.release_date}</p>
         <p>Duración: {movie.runtime} minutos</p>

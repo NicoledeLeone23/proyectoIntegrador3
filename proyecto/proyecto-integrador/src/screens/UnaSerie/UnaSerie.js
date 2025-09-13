@@ -4,7 +4,6 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import SerieDetail from "../../components/SerieDetail/SerieDetail";
 
-
 class UnaSerie extends Component {
     constructor(props) {
       super(props);
@@ -20,10 +19,6 @@ class UnaSerie extends Component {
         .then(res => res.json())
         .then(data => this.setState({ data }));
     }
-  
-
-  
-
   
     render() {
       return (
