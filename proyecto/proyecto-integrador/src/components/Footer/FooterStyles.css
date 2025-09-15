@@ -12,3 +12,21 @@ footer p {
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+
+
+@media (max-width: 768px) {
+  footer p {
+    font-size: 14px; /* un poco más chico en tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 15px; /* menos padding en celular */
+  }
+
+  footer p {
+    font-size: 13px; 
+    line-height: 1.4;
+  }
+}
