@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./SerieDetail.css"; 
 
 class SerieDetail extends Component {
   render() {
