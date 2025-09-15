@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PeliculaSeriesCard from "../PeliculaSeriesCard/PeliculaSeriesCard";
 import { Link } from "react-router-dom";
-import "./CarteleraStyles.css";
+
 
 class PeliculasCartelera extends Component {
   constructor(props) {

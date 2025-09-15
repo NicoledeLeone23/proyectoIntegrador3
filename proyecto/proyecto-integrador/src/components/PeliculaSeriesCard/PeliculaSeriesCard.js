@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import "./PeliculaSeriesCard.css";
 
 class PeliculaSeriesCard extends Component {
   constructor(props) {
@@ -32,29 +33,29 @@ class PeliculaSeriesCard extends Component {
 
 
     return (
-      <article className="character-card">
-        <img
+      <article  className="card" >
+        <img  className="card-img"
           src={`https://image.tmdb.org/t/p/w342${this.props.item.poster_path}`}
           alt={titulo}
         />
 
-        <h2>{titulo}</h2>
+        <h2 className="card-title" >{titulo}</h2>
 
-        <p className="more" onClick={this.mostrarDescripcion}>
+        <p className="card-toggle-desc" onClick={this.mostrarDescripcion}>
           {this.state.verDescripcion ? "Ver menos" : "Ver descripción"}
         </p>
 
         {this.state.verDescripcion && (
-          <section>
+          <section className="card-description" >
             <p>{this.props.item.overview ? this.props.item.overview : "Sin descripción."}</p>
           </section>
         )}
 
-        <p className="more">
+        <p className="card-link" >
           <Link to={ruta}>Ir a detalle</Link>
         </p>
 
-        <p className="delete" onClick={this.favorita}>
+        <p className="card-favorite" onClick={this.favorita}>
           {this.state.esFavorita ? "Quitar de favoritos" : "Agregar a favoritos"}
         </p>
       </article>
