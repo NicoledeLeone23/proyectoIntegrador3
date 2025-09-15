@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
 import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
+import "./PeliculasEnCartelStyle.css";
 
 
 
@@ -62,17 +63,21 @@ class PeliculasEnCartel extends Component {
     return (
       <React.Fragment>
         <Header />
+        <div className="peliculas-container" >
         <h1>Películas en Cartel</h1>
         <Filtro filtro={this.filtrarPeliculas} />
-          <button onClick={this.cargarMas}>
+          <button className="cargar-mas-btn" onClick={this.cargarMas}>
           Cargar más películas
         </button>
+        <div  className="cards-container">
                   {this.state.peliculasFiltradas.map((unaPelicula) => (
   <PeliculaSeriesCard 
     key={unaPelicula.id} 
     item={unaPelicula} 
   />
 ))}
+</div>
+</div>
         <Footer />
       </React.Fragment>
     );

@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
 import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
+import "./TopSeriesRatedStyle.css";
 
 class TopSeriesRated extends Component {
   constructor(props) {
@@ -60,17 +61,21 @@ class TopSeriesRated extends Component {
     return (
       <React.Fragment>
         <Header />
+        <div className="peliculas-container" >
         <h1>Series Mejor Valoradas</h1>
         <Filtro filtro={this.filtrarSeries} />
-        <button onClick={this.cargarMas}>
+        <button className="cargar-mas-btn" onClick={this.cargarMas}>
           Cargar más series
         </button>
+         <div className="cards-container">
  {this.state.seriesFiltradas.map((unaSerie) => (
   <PeliculaSeriesCard 
     key={unaSerie.id} 
     item={unaSerie}  
   />
         ))}
+</div>
+</div>
         <Footer />
       </React.Fragment>
     );
