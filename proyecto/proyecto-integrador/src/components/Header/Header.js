@@ -7,12 +7,11 @@ import Buscador from "../Buscador/Buscador";
 function Header() {
     return (  <nav>
                 <div className="logo-container">
-                    <img src="./img/logo.jpg" alt="AfterCredits" className="logo" />
-                    <p className="title"> After Credits </p>
+                    <p className="title"> AFTER CREDITS  </p>
                 </div>
                 <ul className="nav nav-tabs my-4">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/">Inicio</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/peliculaspopulares">Películas Populares</Link>
