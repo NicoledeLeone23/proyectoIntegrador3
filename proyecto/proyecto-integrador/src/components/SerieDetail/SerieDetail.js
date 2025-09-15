@@ -19,8 +19,8 @@ class SerieDetail extends Component {
         <article className="character-card"> 
         <img src={`https://image.tmdb.org/t/p/w342${serie.poster_path}`} alt={serie.original_name} /> 
         <h2>{serie.original_name}</h2> 
-        <p>Calificación: {serie.vote_average}</p>
-        <p>Fecha de estreno: {serie.release_date}</p>
+        <p>⭐ Calificación: {serie.vote_average}</p>
+        <p>📆 Fecha de estreno: {serie.release_date}</p>
         <p>Sinopsis: {serie.overview}</p>
         <p><strong>Géneros:</strong></p>
         <ul>
