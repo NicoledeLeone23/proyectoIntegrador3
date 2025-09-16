@@ -16,8 +16,8 @@
     color: #fff;
     background-color: #414141;
     outline: none;
-    transition: all 0.2s ease-in-out;
 }
+
 
 .filtro-input::placeholder {
     color: #ff4d4d;
