@@ -1,11 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
 import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
 import "./PeliculasEnCartelStyle.css";
-
-
 
 class PeliculasEnCartel extends Component {
   constructor(props) {
@@ -20,64 +18,70 @@ class PeliculasEnCartel extends Component {
 
   componentDidMount() {
     fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1")
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         this.setState({
           peliculas: data.results,
           peliculasFiltradas: data.results,
           backupPeliculas: data.results,
           paginaActual: 1
         });
-      });
-      
+      })
+      .catch(error => console.log(error));
   }
 
-  filtrarPeliculas = (valorInput) => {
-    const filtradas = this.state.peliculas.filter((pelicula) =>
+  filtrarPeliculas(valorInput) {
+    const filtradas = this.state.backupPeliculas.filter(pelicula =>
       pelicula.title.toLowerCase().includes(valorInput.toLowerCase())
     );
     this.setState({ peliculasFiltradas: filtradas });
-  };
+  }
 
-  cargarMas = () => {
+  cargarMas() {
     const siguientePagina = this.state.paginaActual + 1;
+
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
       .then(resp => resp.json())
       .then(data => {
-        
-        let nuevasBackup = this.state.backupPeliculas;
+        // Creamos un nuevo array copiando backupPeliculas
+        let nuevasPeliculas = [];
+        for (let i = 0; i < this.state.backupPeliculas.length; i++) {
+          nuevasPeliculas[i] = this.state.backupPeliculas[i];
+        }
+        // Agregamos los resultados nuevos
         for (let i = 0; i < data.results.length; i++) {
-          nuevasBackup.push(data.results[i]);
+          nuevasPeliculas[this.state.backupPeliculas.length + i] = data.results[i];
         }
 
         this.setState({
-          peliculas: nuevasBackup,
-          peliculasFiltradas: nuevasBackup,
-          backupPeliculas: nuevasBackup,
+          peliculas: nuevasPeliculas,
+          peliculasFiltradas: nuevasPeliculas,
+          backupPeliculas: nuevasPeliculas,
           paginaActual: siguientePagina
         });
-      });
+      })
+      .catch(error => console.log(error));
   }
 
   render() {
     return (
       <React.Fragment>
         <Header />
-        <div className="peliculas-container" >
-        <h1>Películas en Cartel</h1>
-        <Filtro filtro={this.filtrarPeliculas} />
-          <button className="cargar-mas-btn" onClick={this.cargarMas}>
-          Cargar más películas
-        </button>
-        <div  className="cards-container">
-                  {this.state.peliculasFiltradas.map((unaPelicula) => (
-  <PeliculaSeriesCard 
-    key={unaPelicula.id} 
-    item={unaPelicula} 
-  />
-))}
-</div>
-</div>
+        <div className="peliculas-container">
+          <h1>Películas en Cartel</h1>
+          <Filtro filtro={(valor) => this.filtrarPeliculas(valor)} />
+          <button className="cargar-mas-btn" onClick={() => this.cargarMas()}>
+            Cargar más películas
+          </button>
+          <div className="cards-container">
+            {this.state.peliculasFiltradas.map(unaPelicula => (
+              <PeliculaSeriesCard 
+                key={unaPelicula.id} 
+                item={unaPelicula} 
+              />
+            ))}
+          </div>
+        </div>
         <Footer />
       </React.Fragment>
     );
