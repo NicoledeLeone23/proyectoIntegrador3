@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// prueba git
+import "./FiltroStyle.css";
+
 class Filtro extends Component {
 
   constructor(props) {
@@ -24,8 +25,8 @@ class Filtro extends Component {
   render() {
     return (
 
-      <form onSubmit={(evento) => this.manejarSubmit(evento)}>
-        <input  placeholder='Buscar pelicula' onChange={(evento) => this.controlarInput(evento)} value={this.state.valorInput} />
+      <form  className="filtro-form"  onSubmit={(evento) => this.manejarSubmit(evento)}>
+        <input  className="filtro-input"  placeholder='Buscar pelicula' onChange={(evento) => this.controlarInput(evento)} value={this.state.valorInput} />
       </form>
     )
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom"; // v5
+import { withRouter } from "react-router-dom"; 
+import "./BuscadorStyle.css";
 
 class Buscador extends Component {
   constructor(props) {
@@ -20,13 +21,13 @@ class Buscador extends Component {
 
   render() {
     return (
-      <form onSubmit={this.controlarForm}>
-        <input
+      <form className="buscador-form" onSubmit={this.controlarForm}>
+        <input className="buscador-input"
           placeholder="Buscador"
           value={this.state.input}
           onChange={this.controlarInput}
         />
-        <button type="submit" >Buscar</button>
+        <button className="buscador-button" type="submit" >Buscar</button>
       </form>
     );
   }

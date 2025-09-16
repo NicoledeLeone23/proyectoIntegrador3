@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
 import Footer from "../../components/Footer/Footer";
+import "./ResultadoStyle.css";
 
 class Resultado extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Resultado extends Component {
       <React.Fragment>
         <Header />
 
-        <div>
+        <div className="resultado-container">
           <h1>Resultados de: {busqueda}</h1>
           
           <section>
