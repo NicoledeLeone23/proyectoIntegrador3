@@ -10,12 +10,12 @@ class Favoritos extends Component {
     }
 
     componentDidMount(){
-        favoritosEnStorage = localStorage.getItem("favoritos");
+        let favoritosEnStorage = localStorage.getItem("favoritos");
         let favoritos;
         if (favoritosEnStorage === null) {
             favoritos = [];
           } else {
-            favoritos = JSON.parse(favoritosJSON);
+            favoritos = JSON.parse(favoritosEnStorage);
           }
       
           this.setState({favoritos: favoritos});

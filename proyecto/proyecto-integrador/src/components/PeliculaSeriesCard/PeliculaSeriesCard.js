@@ -11,13 +11,58 @@ class PeliculaSeriesCard extends Component {
     };
   }
 
+  componentDidMount() {
+    let favoritosEnStorage = localStorage.getItem("favoritos");
+    let favoritos;
+
+    if (favoritosEnStorage === null) {
+      favoritos = [];
+    } else {
+      favoritos = JSON.parse(favoritosEnStorage);
+    }
+
+    let existe = false;
+    for (let i = 0; i < favoritos.length; i++) {
+      if (favoritos[i].id === this.props.item.id) {
+        existe = true;
+      }
+    }
+
+    if (existe) {
+      this.setState({ esFavorita: true });
+    }
+  }
+
   mostrarDescripcion = () => {
     this.setState({ verDescripcion: !this.state.verDescripcion });
   };
 
   favorita = () => {
-    this.setState({ esFavorita: !this.state.esFavorita });
+    let favoritosEnStorage = localStorage.getItem("favoritos");
+    let favoritos;
+
+    if (favoritosEnStorage === null) {
+      favoritos = [];
+    } else {
+      favoritos = JSON.parse(favoritosEnStorage);
+    }
+
+    if (this.state.esFavorita) {
+      let nuevosFavs = [];
+      for (let i = 0; i < favoritos.length; i++) {
+        if (favoritos[i].id !== this.props.item.id) {
+          nuevosFavs.push(favoritos[i]);
+        }
+      }
+      localStorage.setItem("favoritos", JSON.stringify(nuevosFavs));
+      this.setState({ esFavorita: false });
+    } else {
+      favoritos.push(this.props.item);
+      localStorage.setItem("favoritos", JSON.stringify(favoritos));
+      this.setState({ esFavorita: true });
+    }
   };
+
 
  render() {
 
@@ -30,7 +75,6 @@ class PeliculaSeriesCard extends Component {
   titulo = this.props.item.name; // referencia a series 
   ruta = `/serie/${this.props.item.id}`
 }
-
 
     return (
       <article  className="card" >

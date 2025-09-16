@@ -26,7 +26,7 @@ function Header() {
                     <Link className="nav-link" to="/topratedseries">Series Mejor Valoradas</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/favoritas">Favoritas</Link>
+                    <Link className="nav-link" to="/favoritos">Favoritas</Link>
                 </li>
                 
                 </ul>
