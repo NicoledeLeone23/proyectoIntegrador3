@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PeliculaSeriesCard from "../PeliculaSeriesCard/PeliculaSeriesCard";
+import Header from "../Header/Header";
 
 class Favoritos extends Component {
     constructor(props){
@@ -27,6 +28,8 @@ class Favoritos extends Component {
             }
         
             return (
+                <>
+                <Header/>
               <section className="favoritos-page">
                 <h1>Mis Favoritos</h1>
                 {this.state.favoritos.length === 0 ? (
@@ -35,6 +38,8 @@ class Favoritos extends Component {
                   <div className="favoritos-grid">{elementos}</div>
                 )}
               </section>
+
+              </>
             );
           }
         }

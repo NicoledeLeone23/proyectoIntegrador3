@@ -12,8 +12,10 @@ import Resultado from "./screens/Resultado/Resultado";
 import Favoritos from "./components/Favoritos/Favoritos";
 
 
+
 function App() {
   return (
+
     <Switch>
       <Route path= "/" exact={true} component={Home}/>
       <Route path= "/peliculasencartel" component={PeliculasEnCartel}/>
