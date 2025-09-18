@@ -12,13 +12,10 @@
     font-size: 14px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
-    background-color: #111;
+    background-color: #111;;
+    outline: none;
 }
 
-.buscador-input::placeholder {
-    color: #ff4d4d;
-    opacity: 1;
-}
 
 .buscador-button {
     padding: 5px 12px;
