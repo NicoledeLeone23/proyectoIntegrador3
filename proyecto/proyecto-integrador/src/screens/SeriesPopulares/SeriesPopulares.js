@@ -9,10 +9,11 @@ class SeriesPopulares extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      series: [],
-      seriesFiltradas: [],
-      backupSeries: [],
-      paginaActual: 1
+
+      series: [], 
+      seriesFiltradas: [], 
+      backupSeries: [], 
+      paginaActual: 1 
     };
   }
 
