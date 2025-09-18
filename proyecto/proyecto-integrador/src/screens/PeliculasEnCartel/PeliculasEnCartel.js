@@ -43,15 +43,11 @@ class PeliculasEnCartel extends Component {
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
       .then(resp => resp.json())
       .then(data => {
-        // Creamos un nuevo array copiando backupPeliculas
         let nuevasPeliculas = [];
-        for (let i = 0; i < this.state.backupPeliculas.length; i++) {
-          nuevasPeliculas[i] = this.state.backupPeliculas[i];
-        }
-        // Agregamos los resultados nuevos
-        for (let i = 0; i < data.results.length; i++) {
-          nuevasPeliculas[this.state.backupPeliculas.length + i] = data.results[i];
-        }
+       // peliculas viejas
+        this.state.backupPeliculas.map(p => nuevasPeliculas.push(p));
+        // peliculas nuevas
+        data.results.map(p => nuevasPeliculas.push(p));
 
         this.setState({
           peliculas: nuevasPeliculas,

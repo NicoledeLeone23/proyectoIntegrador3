@@ -30,39 +30,35 @@ class PeliculasPopulares extends Component {
       .catch(error => console.log(error));
   }
 
-  filtrarPeliculas = (valorInput) => {
+  filtrarPeliculas(valorInput) {
     const filtradas = this.state.backupPeliculas.filter(pelicula =>
       pelicula.title.toLowerCase().includes(valorInput.toLowerCase())
     );
     this.setState({ peliculasFiltradas: filtradas });
   }
 
-  cargarMas = () => {
+  cargarMas() {
     const siguientePagina = this.state.paginaActual + 1;
 
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
       .then(resp => resp.json())
       .then(data => {
-        // Copiamos backupPeliculas manualmente
-        let nuevasBackup = [];
-        for (let i = 0; i < this.state.backupPeliculas.length; i++) {
-          nuevasBackup[i] = this.state.backupPeliculas[i];
-        }
-
-        // Agregamos resultados nuevos
-        for (let i = 0; i < data.results.length; i++) {
-          nuevasBackup[this.state.backupPeliculas.length + i] = data.results[i];
-        }
+        let nuevasPeliculas = [];
+       // peliculas viejas
+        this.state.backupPeliculas.map(p => nuevasPeliculas.push(p));
+        // peliculas nuevas
+        data.results.map(p => nuevasPeliculas.push(p));
 
         this.setState({
-          peliculas: nuevasBackup,
-          peliculasFiltradas: nuevasBackup,
-          backupPeliculas: nuevasBackup,
+          peliculas: nuevasPeliculas,
+          peliculasFiltradas: nuevasPeliculas,
+          backupPeliculas: nuevasPeliculas,
           paginaActual: siguientePagina
         });
       })
       .catch(error => console.log(error));
   }
+
 
   render() {
     return (

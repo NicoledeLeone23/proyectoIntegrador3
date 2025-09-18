@@ -30,11 +30,12 @@ class TopSeriesRated extends Component {
       .catch(error => console.log(error));
   }
 
-  filtrarSeries = (valorInput) => {
-    const filtradas = this.state.backupSeries.filter(serie =>
-      serie.name.toLowerCase().includes(valorInput.toLowerCase())
-    );
-    this.setState({ seriesFiltradas: filtradas });
+  filtrarSeries(valorInput) {
+   const filtradas = this.state.backupSeries.filter(serie =>
+  serie.name.toLowerCase().includes(valorInput.toLowerCase())
+);
+this.setState({ seriesFiltradas: filtradas });
+
   }
 
   cargarMas = () => {
@@ -43,21 +44,17 @@ class TopSeriesRated extends Component {
     fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
       .then(resp => resp.json())
       .then(data => {
-        // Copiamos manualmente backupSeries
-        let nuevasBackup = [];
-        for (let i = 0; i < this.state.backupSeries.length; i++) {
-          nuevasBackup[i] = this.state.backupSeries[i];
-        }
+        let nuevasSeries = [];
 
-        // Agregamos resultados nuevos
-        for (let i = 0; i < data.results.length; i++) {
-          nuevasBackup[this.state.backupSeries.length + i] = data.results[i];
-        }
+        // agregamos las viejas
+        this.state.backupSeries.map(s => nuevasSeries.push(s));
+        // agregamos las nuevas
+        data.results.map(s => nuevasSeries.push(s));
 
         this.setState({
-          series: nuevasBackup,
-          seriesFiltradas: nuevasBackup,
-          backupSeries: nuevasBackup,
+          series: nuevasSeries,
+          seriesFiltradas: nuevasSeries,
+          backupSeries: nuevasSeries,
           paginaActual: siguientePagina
         });
       })

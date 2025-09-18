@@ -16,7 +16,6 @@ function Home() {
                 <PeliculasPopulares/>
                 <PopularSeries/>
                 <TopRatedSeries/>
-                
             <Footer/>
        </React.Fragment>
     )
