@@ -67,20 +67,26 @@ this.setState({ seriesFiltradas: filtradas });
       <React.Fragment>
         <Header />
         <div className="peliculas-container" >         
-        <h1>Series Populares</h1>
-        <Filtro filtro={(valor) => this.filtrarSeries(valor)} />
-        <button className="cargar-mas-btn" onClick={() => this.cargarMas()}>
-          Cargar más series
-        </button>
-        <div className="cards-container">
- {this.state.seriesFiltradas.map((unaSerie) => (
-  <PeliculaSeriesCard 
-    key={unaSerie.id} 
-    item={unaSerie}  
-  />
-))}
-</div>
-</div>
+          <h1>Series Populares</h1>
+          <Filtro filtro={(valor) => this.filtrarSeries(valor)} />
+          <button className="cargar-mas-btn" onClick={() => this.cargarMas()}>
+            Cargar más series
+          </button>
+          <div className="cards-container">
+            {
+              this.state.series.length === 0 
+              ? <h3>Cargando...</h3> 
+              : this.state.series.map(unaSerie => (
+                  <PeliculaSeriesCard 
+                    key={unaSerie.id} 
+                    item={unaSerie} 
+                  />
+                ))
+            }
+          </div>
+
+
+          </div>
         <Footer />
       </React.Fragment>
     );
