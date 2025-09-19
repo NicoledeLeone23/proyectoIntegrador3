@@ -9,7 +9,7 @@ import TopSeriesRated from "./screens/TopSeriesRated/TopSeriesRated";
 import SeriesPopulares from "./screens/SeriesPopulares/SeriesPopulares";
 import NotFound from "./screens/NotFound/NotFound";
 import Resultado from "./screens/Resultado/Resultado";
-import Favoritos from "./components/Favoritos/Favoritos";
+import Favoritos from "./screens/Favoritos/Favoritos";
 
 
 
