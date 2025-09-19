@@ -67,10 +67,7 @@ class MovieDetail extends Component {
   };
 
   render() {
-    
     const movie = this.props.data;
-    
-    if (!movie) return <p>Cargando...</p>;
 
     let todosGeneros = []
     for (let i = 0; i < movie.genres.length; i++) {

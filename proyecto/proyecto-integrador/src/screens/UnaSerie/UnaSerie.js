@@ -8,7 +8,7 @@ class UnaSerie extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        data: null
+        data: ""
 
       };
     }
@@ -21,6 +21,16 @@ class UnaSerie extends Component {
     }
   
     render() {
+      if (this.state.data === "") {
+        return (
+          <React.Fragment>
+            <Header />
+            <h3>Cargando...</h3>
+            <Footer />
+          </React.Fragment>
+        );
+      }
+
       return (
         <React.Fragment>
           <Header />

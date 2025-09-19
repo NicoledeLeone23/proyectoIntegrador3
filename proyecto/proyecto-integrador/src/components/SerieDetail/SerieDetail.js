@@ -67,11 +67,7 @@ class SerieDetail extends Component {
   };
   
   render() {
-    
     const serie = this.props.data;
-
-    
-    if (!serie) return <p>Cargando...</p>;
 
     let todosGeneros = []
     for (let i = 0; i < serie.genres.length; i++) {

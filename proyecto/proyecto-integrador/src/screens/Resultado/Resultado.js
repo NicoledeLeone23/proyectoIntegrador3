@@ -9,7 +9,7 @@ class Resultado extends Component {
     super(props);
     this.state = {
       busqueda: props.match.params.busqueda,
-      resultados: []
+      resultados: ""
     };
   }
 
@@ -31,9 +31,22 @@ class Resultado extends Component {
   }
 
   render() {
+
     const resultados = this.state.resultados;
     const busqueda = this.state.busqueda;
 
+    if (resultados === "") {
+      return (
+        <React.Fragment>
+          <Header />
+          <div className="resultado-container">
+            <h1>Resultados de: {busqueda}</h1>
+            <h3>Cargando...</h3>
+          </div>
+          <Footer />
+        </React.Fragment>
+      );
+    }
     const peliculas = resultados.filter(elm => elm.media_type === "movie");
     const series = resultados.filter(elm => elm.media_type === "tv");
 
