@@ -60,6 +60,8 @@ class PeliculasEnCartel extends Component {
   }
 
   render() {
+    
+
     return (
       <React.Fragment>
         <Header />
@@ -70,12 +72,16 @@ class PeliculasEnCartel extends Component {
             Cargar más películas
           </button>
           <div className="cards-container">
-            {this.state.peliculasFiltradas.map(unaPelicula => (
-              <PeliculaSeriesCard 
-                key={unaPelicula.id} 
-                item={unaPelicula} 
-              />
-            ))}
+            {
+              this.state.peliculasFiltradas.length === 0 
+              ? <h3>Cargando...</h3> 
+              : this.state.peliculasFiltradas.map(unaPelicula => (
+                  <PeliculaSeriesCard 
+                    key={unaPelicula.id} 
+                    item={unaPelicula} 
+                  />
+                ))
+            }
           </div>
         </div>
         <Footer />
