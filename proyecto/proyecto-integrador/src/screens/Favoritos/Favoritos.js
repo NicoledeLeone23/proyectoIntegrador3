@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import "./Favoritos.css"
 
 class Favoritos extends Component {
   constructor(props) {
@@ -32,32 +34,37 @@ class Favoritos extends Component {
   
             {this.state.favoritos.filter(elemento => elemento.title).length > 0 ? (
               <div className="favoritos-seccion">
-                <h2>PELICULAS</h2>
+                <h2>Películas en Favoritos</h2>
                 <section>
-                  {this.state.favoritos.filter(elemento => elemento.title).map(elemento => (
-                    <PeliculaSeriesCard key={elemento.id} item={elemento} />
-                  ))}
+                    <div className="cards-row"> 
+                        {this.state.favoritos.filter(elemento => elemento.title).map(elemento => (
+                            <PeliculaSeriesCard key={elemento.id} item={elemento} />
+                        ))}
+                    </div>
                 </section>
               </div>
             ) : (
-              <p>No tenés películas favoritas</p>
+              <p> No tenés películas favoritas </p>
             )}
 
             {this.state.favoritos.filter(elemento => elemento.name).length > 0 ? (
               <div className="favoritos-seccion">
-                <h2>SERIES</h2>
+                <h2>Series en Favoritos</h2>
                 <section>
-                  {this.state.favoritos.filter(elemento => elemento.name).map(elemento => (
-                    <PeliculaSeriesCard key={elemento.id} item={elemento} />
-                  ))}
+                    <div className="cards-row"> 
+                        {this.state.favoritos.filter(elemento => elemento.name).map(elemento => (
+                            <PeliculaSeriesCard key={elemento.id} item={elemento} />
+                        ))}
+                    </div>
                 </section>
               </div>
             ) : (
-              <p>No tenés series favoritas</p>
+              <p> No tenés series favoritas </p>
             )}
   
             <br />
           </div>
+        <Footer />
         </React.Fragment>
       );
   }
