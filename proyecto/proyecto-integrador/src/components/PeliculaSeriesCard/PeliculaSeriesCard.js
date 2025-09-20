@@ -13,7 +13,7 @@ class PeliculaSeriesCard extends Component {
 
   componentDidMount() {
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos;
+    let favoritos= undefined;
 
     if (favoritosEnStorage === null) {
       favoritos = [];
@@ -39,7 +39,7 @@ class PeliculaSeriesCard extends Component {
 
   favorita = () => {
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos;
+    let favoritos= undefined;
 
     if (favoritosEnStorage === null) {
       favoritos = [];
@@ -66,14 +66,14 @@ class PeliculaSeriesCard extends Component {
 
  render() {
 
-    let titulo;
-    let ruta;
-      if (this.props.item.title) {
-  titulo = this.props.item.title; //referencia a peliculas
-  ruta = `/pelicula/${this.props.item.id}`
-  } else {
-  titulo = this.props.item.name; // referencia a series 
-  ruta = `/serie/${this.props.item.id}`
+    let titulo="";
+    let ruta= "";
+    if (this.props.item.title) {
+      titulo = this.props.item.title; //referencia a peliculas
+      ruta = `/pelicula/${this.props.item.id}`
+    } else {
+      titulo = this.props.item.name; // referencia a series 
+      ruta = `/serie/${this.props.item.id}`
 }
 
     return (

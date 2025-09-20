@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import PeliculaSeriesCard from "../PeliculaSeriesCard/PeliculaSeriesCard";
-import "./PopularesStyles.css";
 import { Link } from "react-router-dom";
 
 class PeliculasPopulares extends Component{
@@ -19,7 +18,7 @@ class PeliculasPopulares extends Component{
     }
 
     render() {
-        let contenido;
+        let contenido = undefined;
     
         if (this.state.data === "") {
           contenido = <h3>Cargando...</h3>;
