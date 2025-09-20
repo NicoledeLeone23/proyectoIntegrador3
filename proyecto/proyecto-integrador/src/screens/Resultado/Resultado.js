@@ -20,12 +20,9 @@ class Resultado extends Component {
         if (data !== "") {
           if (data.results !== "") {
             this.setState({ resultados: data.results });
-          } else {
-            this.setState({ resultados: [] });
-          }
         } else {
           this.setState({ resultados: [] });
-        }
+        }}
       })
       .catch(err => console.log(err));
   }

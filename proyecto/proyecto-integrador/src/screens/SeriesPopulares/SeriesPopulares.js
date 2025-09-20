@@ -74,9 +74,9 @@ this.setState({ seriesFiltradas: filtradas });
           </button>
           <div className="cards-container">
             {
-              this.state.series.length === 0 
+              this.state.seriesFiltradas.length === 0 
               ? <h3>Cargando...</h3> 
-              : this.state.series.map(unaSerie => (
+              : this.state.seriesFiltradas.map(unaSerie => (
                   <PeliculaSeriesCard 
                     key={unaSerie.id} 
                     item={unaSerie} 
