@@ -10,13 +10,13 @@ import TopRatedSeries from "../../components/TopRatedSeries/TopRatedSeries";
 
 function Home() {
     return(
-        <React.Fragment>
-            <Header/>
-                <PeliculasCartelera/>
-                <PeliculasPopulares/>
-                <PopularSeries/>
-                <TopRatedSeries/>
-            <Footer/>
+            <React.Fragment>
+            <Header />
+            <PeliculasCartelera />
+            <PeliculasPopulares />
+            <PopularSeries />
+            <TopRatedSeries />
+            <Footer />
        </React.Fragment>
     )
 }

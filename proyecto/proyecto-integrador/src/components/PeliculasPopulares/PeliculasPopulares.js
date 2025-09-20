@@ -34,8 +34,8 @@ class PeliculasPopulares extends Component{
         return (
             <section className="cardContainer populares">
               <h2>Películas Populares</h2>
-              <Link className="see-all" to="/peliculaspopulares">Ver todas</Link>
               {contenido}
+              <Link className="see-all" to="/peliculaspopulares">Ver todas</Link>
             </section>
           );
     }

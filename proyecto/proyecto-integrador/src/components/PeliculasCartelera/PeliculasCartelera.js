@@ -32,9 +32,8 @@ class PeliculasCartelera extends Component {
     return (
         <section className="cardContainer cartelera">
           <h2>Películas en cartel</h2>
-          
-          <Link className="see-all" to="/peliculasencartel">Ver todas</Link>
           {contenido}
+          <Link className="see-all" to="/peliculasencartel">Ver todas</Link>
         </section>
     );
   }
