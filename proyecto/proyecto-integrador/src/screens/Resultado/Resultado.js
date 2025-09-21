@@ -27,16 +27,15 @@ class Resultado extends Component {
   }
 
 render() {
-  const resultados = this.state.resultados;
-  const peliculas = resultados.filter(elm => elm.media_type === "movie");
-  const series = resultados.filter(elm => elm.media_type === "tv");
+  const peliculas = this.state.resultados.filter(elm => elm.media_type === "movie");
+  const series = this.state.resultados.filter(elm => elm.media_type === "tv");
 
   return (
     <React.Fragment>
       <Header />
 
       <div className="resultado-container">
-        {resultados.length === 0 ? (
+        {this.state.resultados.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
           <React.Fragment>
