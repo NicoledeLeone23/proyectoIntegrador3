@@ -18,11 +18,10 @@ class Resultado extends Component {
       .then(res => res.json())
       .then(data => {
         if (data !== "") {
-          if (data.results !== "") {
             this.setState({ resultados: data.results });
         } else {
           this.setState({ resultados: [] });
-        }}
+        }
       })
       .catch(err => console.log(err));
   }
