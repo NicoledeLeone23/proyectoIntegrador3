@@ -1,5 +1,5 @@
 .favoritos-container {
-    padding: 2rem;
+    padding: 20px;
     text-align: center; 
 }
 
@@ -7,7 +7,7 @@
     color: #ff4d4d;      
     font-size: 36px;    
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
     font-family: 'Roboto', sans-serif;
 }
   
@@ -16,7 +16,7 @@
     color: #ff4d4d;     
     font-size: 28px;  
     font-weight: 600;
-    margin: 1.5rem 0;
+    margin: 15px 0;
     font-family: 'Roboto', sans-serif;
 }
 

@@ -14,27 +14,23 @@ class UnaPelicula extends Component {
     }
 
     componentDidMount() {
-      const { id } = this.props.match.params; 
+      const  id  = this.props.match.params.id; 
       fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES`)
         .then(res => res.json())
-        .then(data => this.setState({ data }));
+        .then(data => this.setState({ data: data }))
+        .catch(err => console.log(err));
     }
   
     render() {
-        if (this.state.data === "") {
-          return (
-            <React.Fragment>
-              <Header />
-              <h3>Cargando...</h3>
-              <Footer />
-            </React.Fragment>
-          );
-        }
-      
       return (
         <React.Fragment>
           <Header />
-          <MovieDetail data={this.state.data} />
+          
+          {this.state.data === "" ? (
+            <h3>Cargando...</h3>
+          ) : (
+            <MovieDetail data={this.state.data} />
+          )}
           
           <Footer />
         </React.Fragment>
