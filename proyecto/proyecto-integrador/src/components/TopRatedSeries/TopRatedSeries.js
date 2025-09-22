@@ -36,7 +36,7 @@ class TopRatedSeries extends Component{
               <div className="cards-row">
                 {contenido}
               </div>
-              <Link className="see-all" to="/topratedseries">Ver todas</Link>
+              <Link className="see-all" to="/seriesmejorvalordas">Ver todas</Link>
             </section>
           );
     }

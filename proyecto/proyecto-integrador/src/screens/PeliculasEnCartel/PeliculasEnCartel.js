@@ -4,7 +4,6 @@ import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
 import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
 import "./PeliculasEnCartel.css";
-import PeliculasCartelera from "../../components/PeliculasCartelera/PeliculasCartelera";
 
 class PeliculasEnCartel extends Component {
   constructor(props) {

@@ -40,7 +40,7 @@ class Buscador extends Component {
           value="tv"
           onChange={(e) => this.controlarTipo(e)}
         />
-        <label className ="label">Series</label><br />
+        <label className ="label">Series</label><br/>
 
         <input type="radio"
           value="movie"

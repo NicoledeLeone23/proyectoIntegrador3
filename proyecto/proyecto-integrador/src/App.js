@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch} from "react-router-dom";
 import Home from "./screens/Home/Home";
-import PeliculasEnCartel from "./screens/TopPeliculasRated/TopPeliculasRated";
+import PeliculasEnCartel from "./screens/PeliculasEnCartel/PeliculasEnCartel";
 import UnaPelicula from "./screens/UnaPelicula/UnaPelicula";
 import UnaSerie from "./screens/UnaSerie/UnaSerie";
 import TopSeriesRated from "./screens/TopSeriesRated/TopSeriesRated";
@@ -19,9 +19,9 @@ function App() {
     <Switch>
       <Route path= "/" exact={true} component={Home}/>
       <Route path= "/peliculasencartel" component={PeliculasEnCartel}/>
-      <Route path= "/peliculastoprated" component={TopPeliculasRated}/>
+      <Route path= "/peliculasmejorvaloradas" component={TopPeliculasRated}/>
       <Route path= "/seriespopulares" component={SeriesPopulares} />
-      <Route path= "/topratedseries" component ={TopSeriesRated}/>
+      <Route path= "/seriesmejorvalordas" component ={TopSeriesRated}/>
       <Route path="/resultado/:tipo/:busqueda" component={Resultado} />
       <Route path= "/pelicula/:id" component={UnaPelicula}/>
       <Route path= "/serie/:id" component={UnaSerie}/>

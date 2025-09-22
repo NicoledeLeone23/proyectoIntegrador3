@@ -14,7 +14,7 @@ function Header() {
                     <Link className="nav-link" to="/">Inicio</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/peliculastoprated"> Películas Top Rated</Link>
+                    <Link className="nav-link" to="/peliculasmejorvaloradas"> Películas Mejor Valoradas</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/peliculasencartel">Películas en Cartel</Link>
@@ -24,7 +24,7 @@ function Header() {
                 </li>
 
                 <li className="nav-item">
-                    <Link className="nav-link" to="/topratedseries">Series Top Rated</Link>
+                    <Link className="nav-link" to="/seriesmejorvalordas">Series Mejor Valoradas</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/favoritos">Favoritas</Link>

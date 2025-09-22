@@ -15,18 +15,15 @@ class Filtro extends Component {
   }
 
   controlarInput(evento) {
-    this.setState(
-      { valorInput: evento.target.value },
-      () => this.props.filtro(this.state.valorInput)
+    this.setState({ valorInput: evento.target.value });
+    this.props.filtro(evento.target.value);
 
-    )
   }
 
   render() {
     return (
-
       <form  className="filtro-form"  onSubmit={(evento) => this.manejarSubmit(evento)}>
-        <input  className="filtro-input"  placeholder='Buscar pelicula' onChange={(evento) => this.controlarInput(evento)} value={this.state.valorInput} />
+        <input  className="filtro-input"  placeholder='Buscar' onChange={(evento) => this.controlarInput(evento)} value={this.state.valorInput} />
       </form>
     )
   }

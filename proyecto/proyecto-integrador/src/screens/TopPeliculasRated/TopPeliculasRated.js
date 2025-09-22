@@ -5,7 +5,7 @@ import Filtro from "../../components/Filtro/Filtro";
 import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
 import "./TopPeliculasRated.css";
 
-class PeliculasEnCartel extends Component {
+class TopPeliculasRated extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,7 +64,7 @@ class PeliculasEnCartel extends Component {
       <React.Fragment>
         <Header />
         <div className="peliculas-container">
-          <h1>Pelicula en Cartel</h1>
+          <h1>Peliculas mejor valoradas</h1>
           <Filtro filtro={(valor) => this.filtrarPeliculas(valor)} />
           <button className="cargar-mas-btn" onClick={() => this.cargarMas()}>
             Cargar más películas
@@ -88,4 +88,4 @@ class PeliculasEnCartel extends Component {
   }
 }
 
-export default PeliculasEnCartel;
+export default TopPeliculasRated;
