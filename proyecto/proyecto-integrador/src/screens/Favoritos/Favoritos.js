@@ -9,6 +9,7 @@ class Favoritos extends Component {
     super(props);
     this.state = {
       favoritos: []
+      
     };
   }
 
@@ -24,9 +25,13 @@ class Favoritos extends Component {
     this.setState({ favoritos: favoritos });
   }
 
+<<<<<<< HEAD
+
+=======
   actualizar(id){
 
   }
+>>>>>>> 037930952002b1af98c65faacbf6884db63e1abf
 
   render(){
 
