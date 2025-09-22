@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
 import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
-import "./PeliculasEnCartelStyle.css";
+import "./TopPeliculasRated.css";
 
 class PeliculasEnCartel extends Component {
   constructor(props) {
