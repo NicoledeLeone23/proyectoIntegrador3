@@ -13,7 +13,7 @@ class PeliculaSeriesCard extends Component {
 
   componentDidMount() {
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos;
+    let favoritos = undefined;
 
     if (favoritosEnStorage === null) {
       favoritos = [];
@@ -39,7 +39,7 @@ class PeliculaSeriesCard extends Component {
 
   favorita() {
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos;
+    let favoritos = undefined;
 
     if (favoritosEnStorage === null) {
       favoritos = [];

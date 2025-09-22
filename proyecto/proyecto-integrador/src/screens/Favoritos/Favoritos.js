@@ -61,8 +61,6 @@ class Favoritos extends Component {
             ) : (
               <p> No tenés series favoritas </p>
             )}
-  
-            <br />
           </div>
         <Footer />
         </React.Fragment>

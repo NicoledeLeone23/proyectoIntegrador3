@@ -17,7 +17,7 @@ class PeliculasCartelera extends Component {
   }
 
   render() {
-    let contenido;
+    let contenido = undefined;
 
     if (this.state.data === "") {
       contenido = <h3>Cargando...</h3>;

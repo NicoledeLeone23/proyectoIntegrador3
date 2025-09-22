@@ -9,7 +9,6 @@ class UnaSerie extends Component {
       super(props);
       this.state = {
         data: ""
-
       };
     }
 
