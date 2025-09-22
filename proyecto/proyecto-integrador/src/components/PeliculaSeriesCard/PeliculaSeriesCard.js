@@ -33,11 +33,11 @@ class PeliculaSeriesCard extends Component {
     }
   }
 
-  mostrarDescripcion = () => {
+  mostrarDescripcion(){
     this.setState({ verDescripcion: !this.state.verDescripcion });
   };
 
-  favorita = () => {
+  favorita(){
     let favoritosEnStorage = localStorage.getItem("favoritos");
     let favoritos;
 
@@ -65,46 +65,51 @@ class PeliculaSeriesCard extends Component {
 
 
  render() {
+  let titulo = undefined;
+  let ruta = undefined;
 
-    let titulo;
-    let ruta;
-      if (this.props.item.title) {
-  titulo = this.props.item.title; //referencia a peliculas
-  ruta = `/pelicula/${this.props.item.id}`
+  if (this.props.item.title) {
+    titulo = this.props.item.title; // referencia a películas
+    ruta = `/pelicula/${this.props.item.id}`;
   } else {
-  titulo = this.props.item.name; // referencia a series 
-  ruta = `/serie/${this.props.item.id}`
-}
-
-    return (
-      <article  className="card" >
-        <img  className="card-img"
-          src={`https://image.tmdb.org/t/p/w342${this.props.item.poster_path}`}
-          alt={titulo}
-        />
-
-        <h2 className="card-title" >{titulo}</h2>
-
-        <p className="card-toggle-desc" onClick={this.mostrarDescripcion}>
-          {this.state.verDescripcion ? "Ver menos" : "Ver descripción"}
-        </p>
-
-        {this.state.verDescripcion && (
-          <section className="card-description" >
-            <p>{this.props.item.overview ? this.props.item.overview : "Sin descripción."}</p>
-          </section>
-        )}
-
-        <p className="card-link" >
-          <Link to={ruta}>Ir a detalle</Link>
-        </p>
-
-        <p className="card-favorite" onClick={this.favorita}>
-          {this.state.esFavorita ? "Quitar de favoritos" : "Agregar a favoritos"}
-        </p>
-      </article>
-    );
+    titulo = this.props.item.name; // referencia a series
+    ruta = `/serie/${this.props.item.id}`;
   }
+
+  return (
+    <article className="card">
+      <img
+        className="card-img"
+        src={`https://image.tmdb.org/t/p/w342${this.props.item.poster_path}`}
+        alt={titulo}
+      />
+
+      <h2 className="card-title">{titulo}</h2>
+
+      <p className="card-toggle-desc" onClick={() => this.mostrarDescripcion()}>
+        {this.state.verDescripcion ? "Ver menos" : "Ver descripción"}
+      </p>
+
+      {this.state.verDescripcion && (
+        <section className="card-description">
+          <p>
+            {this.props.item.overview
+              ? this.props.item.overview
+              : "Sin descripción."}
+          </p>
+        </section>
+      )}
+
+      <p className="card-link">
+        <Link to={ruta}>Ir a detalle</Link>
+      </p>
+
+      <p className="card-favorite" onClick={() => this.favorita()}>
+        {this.state.esFavorita ? "Quitar de favoritos" : "Agregar a favoritos"}
+      </p>
+    </article>
+  );
+}
 }
 
 export default PeliculaSeriesCard;
