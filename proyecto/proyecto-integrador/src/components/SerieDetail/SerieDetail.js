@@ -4,7 +4,9 @@ import "./SerieDetail.css";
 class SerieDetail extends Component {
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+
+    }
   }
 
   componentDidMount() {
@@ -66,25 +68,17 @@ class SerieDetail extends Component {
   }
   
   render() {
-    const serie = this.props.data;
-
-    let todosGeneros = []
-    for (let i = 0; i < serie.genres.length; i++) {
-        todosGeneros.push(serie.genres[i].name)
-        
-    }
-
     return (
         <article className="character-card"> 
-        <img src={`https://image.tmdb.org/t/p/w342${serie.poster_path}`} alt={serie.original_name} /> 
-        <h2>{serie.original_name}</h2> 
-        <p>Calificación: {serie.vote_average}</p>
-        <p>Fecha de estreno: {serie.release_date}</p>
-        <p>Sinopsis: {serie.overview}</p>
+        <img src={`https://image.tmdb.org/t/p/w342${this.props.data.poster_path}`} alt={this.props.data.original_name} /> 
+        <h2>{this.props.data.original_name}</h2> 
+        <p>Calificación: {this.props.data.vote_average}</p>
+        <p>Fecha de estreno: {this.props.data.release_date}</p>
+        <p>Sinopsis: {this.props.data.overview}</p>
         <p><strong>Géneros:</strong></p>
         <ul>
-        {serie.genres && serie.genres.length > 0
-            ? serie.genres.map((genero,i) => <li key={genero.i}>{genero.name}</li>)
+        {this.props.data.genres.length > 0
+            ? this.props.data.genres.map((genero,i) => <li key={genero+i}>{genero.name}</li>)
             : []}
         </ul>
 
@@ -92,7 +86,7 @@ class SerieDetail extends Component {
           {this.state.esFavorita ? "Quitar de favoritos" : "Agregar a favoritos"}
         </p>
 
-{console.log(serie.genres)}
+
        
             
             
