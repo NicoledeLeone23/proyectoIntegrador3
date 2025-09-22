@@ -66,7 +66,7 @@ this.setState({ seriesFiltradas: filtradas });
       <React.Fragment>
         <Header />
         <div className="peliculas-container">
-          <h1>Series Mejor Valoradas</h1>
+          <h1>Series Top Rated</h1>
           <Filtro filtro={(valor) => this.filtrarSeries(valor)} />
           <button className="cargar-mas-btn" onClick={() => this.cargarMas()}>
             Cargar más series
