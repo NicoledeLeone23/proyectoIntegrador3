@@ -9,6 +9,7 @@ class Favoritos extends Component {
     super(props);
     this.state = {
       favoritos: []
+      
     };
   }
 
@@ -23,6 +24,8 @@ class Favoritos extends Component {
 
     this.setState({ favoritos: favoritos });
   }
+
+
 
   render(){
     return (
