@@ -13,7 +13,7 @@ class PeliculaSeriesCard extends Component {
 
   componentDidMount() {
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos;
+    let favoritos = [];
 
     if (favoritosEnStorage === null) {
       favoritos = [];
@@ -21,25 +21,20 @@ class PeliculaSeriesCard extends Component {
       favoritos = JSON.parse(favoritosEnStorage);
     }
 
-    let existe = false;
     for (let i = 0; i < favoritos.length; i++) {
       if (favoritos[i].id === this.props.item.id) {
-        existe = true;
+        this.setState({esFavorita : true})
       }
-    }
-
-    if (existe) {
-      this.setState({ esFavorita: true });
     }
   }
 
   mostrarDescripcion(){
-    this.setState({ verDescripcion: !this.state.verDescripcion });
+    this.setState({ verDescripcion : true });
   };
 
   favorita(){
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos;
+    let favoritos = [];
 
     if (favoritosEnStorage === null) {
       favoritos = [];
@@ -62,9 +57,6 @@ class PeliculaSeriesCard extends Component {
       this.setState({ esFavorita: true });
     }
 
-    if (this.props.onRemove) {
-      this.props.onRemove(this.props.item.id);
-    }
   };
 
 
@@ -93,9 +85,9 @@ class PeliculaSeriesCard extends Component {
       <p className="card-toggle-desc" onClick={() => this.mostrarDescripcion()}>
         {this.state.verDescripcion ? "Ver menos" : "Ver descripción"}
       </p>
-
+      
       {this.state.verDescripcion && (
-        <section className="card-description">
+        <section className="card-description"> 
           <p>
             {this.props.item.overview}
           </p>

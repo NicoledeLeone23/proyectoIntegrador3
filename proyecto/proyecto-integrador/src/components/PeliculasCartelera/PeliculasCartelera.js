@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 class PeliculasCartelera extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: "" };
+    this.state = { 
+      data: " " 
+    };
   }
 
   componentDidMount() {
@@ -18,17 +20,22 @@ class PeliculasCartelera extends Component {
 
   render() {
     let contenido = undefined;
-    const cards = [];
-    for (let i = 0; i < 4; i++) {
-      cards.push(<PeliculaSeriesCard key={this.state.data[i].id} item={this.state.data[i]} />);
+
+    if (this.state.data === "") {
+      contenido = <h3>Cargando...</h3>;
+    } else {
+      const cards = [];
+      for (let i = 0; i < 4; i++) {
+        cards.push(<PeliculaSeriesCard key={this.state.data[i].id} item={this.state.data[i]} />);
+      }
+      contenido = cards;
     }
-    contenido = cards;
 
     return (
         <section className="cardContainer cartelera">
           <h2 className="titulo"> Películas en cartel</h2>
           <div className="cards-row">
-            {this.state.data === "" ? (<h3>Cargando...</h3>) : (contenido)}
+            {contenido}
           </div>
           <Link className="see-all" to="/peliculasencartel">Ver todas</Link>
         </section>

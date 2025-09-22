@@ -1,6 +1,5 @@
 .resultado-container {
     color: #fff;
-    min-height: 80vh;
     padding: 40px 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 0.5px;
@@ -16,7 +15,6 @@
     display: inline-block;
     padding-bottom: 5px;
 }
-
 
 
 .resultado-container h1 {

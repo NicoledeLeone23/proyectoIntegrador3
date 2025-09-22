@@ -4,7 +4,7 @@ import "./SerieDetail.css";
 class SerieDetail extends Component {
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {esFavorita : false};
   }
 
   componentDidMount() {
@@ -17,17 +17,15 @@ class SerieDetail extends Component {
       favoritos = JSON.parse(favoritosEnStorage);
     }
 
-    let existe = false;
     for (let i = 0; i < favoritos.length; i++) {
       if (favoritos[i].id === this.props.data.id) {
-        existe = true;
+        this.setState({esFavorita : true})
       }
     }
-    this.setState({ esFavorita: existe });
   }
 
   componentDidUpdate(propsAnteriores) {
-    if (propsAnteriores.data !== this.props.data) {
+    if (propsAnteriores.data !== this.props.data) { //ver ver ver
       this.verificarFavorito();
     }
   }

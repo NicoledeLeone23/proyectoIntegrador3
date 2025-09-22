@@ -4,7 +4,7 @@ import "./MovieDetail.css";
 class MovieDetail extends Component {
   constructor(props){
     super(props);
-    this.state = { }
+    this.state = {};
   }
 
   componentDidMount() {
@@ -17,18 +17,15 @@ class MovieDetail extends Component {
       favoritos = JSON.parse(favoritosEnStorage);
     }
 
-    let existe = false;
     for (let i = 0; i < favoritos.length; i++) {
       if (favoritos[i].id === this.props.data.id) {
-        existe = true;
+        this.setState({esFavorita : true})
       }
     }
-
-    this.setState({ esFavorita: existe });
   }
 
   componentDidUpdate(propsAnteriores) {
-    if (propsAnteriores.data !== this.props.data) {
+    if (propsAnteriores.data !== this.props.data) { //ver ver ver
       this.verificarFavorito();
     }
   }
@@ -36,7 +33,7 @@ class MovieDetail extends Component {
   mostrarFavorito() {
     const movie = this.props.data;
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos=undefined;
+    let favoritos= undefined;
 
     if (favoritosEnStorage === null) {
       favoritos = [];
@@ -51,12 +48,12 @@ class MovieDetail extends Component {
           nuevosFavs.push(favoritos[i]);
         }
       }
-      localStorage.setItem("favoritos", JSON.stringify(nuevosFavs));
+      localStorage.setItem("favoritos", JSON.stringify(nuevosFavs)); // clave valor favoritos: id pelicula
       this.setState({ esFavorita: false });
     } else {
-      favoritos.push(movie);
-      localStorage.setItem("favoritos", JSON.stringify(favoritos));
-      this.setState({ esFavorita: true });
+      favoritos.push(movie); // agrego la pelicula a favoritos
+      localStorage.setItem("favoritos", JSON.stringify(favoritos)); // clave valor favoritos: id pelicula
+      this.setState({ esFavorita: true }); // cambio el estado 
     }
   }
 

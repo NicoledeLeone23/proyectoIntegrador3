@@ -19,11 +19,11 @@ class Buscador extends Component {
   }
 
   controlarInput(e) {
-    this.setState({ input: e.target.value });
+    this.setState({ input: e.target.value }); //guarda el input del usuario
   }
 
   controlarTipo(e) {
-    this.setState({ tipo: e.target.value });
+    this.setState({ tipo: e.target.value }); //guarda el tipo si serie o peli
   }
 
   render() {
@@ -40,15 +40,15 @@ class Buscador extends Component {
           value="tv"
           onChange={(e) => this.controlarTipo(e)}
         />
-        <label className ="label">Series</label><br/>
+        <label className ="label">Series</label> <br/>
 
         <input type="radio"
           value="movie"
           onChange={(e) => this.controlarTipo(e)}
         />
-        <label className ="label">Películas</label><br />
+        <label className ="label">Películas</label> <br/>
 
-        <button className = "buscador-button" type="submit">Buscar</button>
+        <button className = "buscador-button" type="submit"> Buscar </button>
       </form>
     );
   }

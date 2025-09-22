@@ -1,6 +1,5 @@
 .notfound-container {
     color: #fff;
-    min-height: 80vh; /* ocupa casi toda la pantalla */
     display: flex;
     flex-direction: column;
     align-items: center;

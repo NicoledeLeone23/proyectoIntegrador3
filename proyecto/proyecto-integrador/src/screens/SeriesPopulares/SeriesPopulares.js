@@ -84,8 +84,6 @@ this.setState({ seriesFiltradas: filtradas });
                 ))
             }
           </div>
-
-
           </div>
         <Footer />
       </React.Fragment>
