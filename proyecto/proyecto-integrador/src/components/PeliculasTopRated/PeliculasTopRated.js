@@ -19,22 +19,17 @@ class PeliculasTopRated extends Component{
 
     render() {
         let contenido = undefined;
-    
-        if (this.state.data === "") {
-          contenido = <h3>Cargando...</h3>;
-        } else {
-          const cards = [];
-          for (let i = 0; i < 4; i++) {
-            cards.push(<PeliculaSeriesCard key={this.state.data[i].id} item={this.state.data[i]} />);
-          }
-          contenido = cards;
+        const cards = [];
+        for (let i = 0; i < 4; i++) {
+          cards.push(<PeliculaSeriesCard key={this.state.data[i].id} item={this.state.data[i]} />);
         }
+        contenido = cards;
     
         return (
             <section className="cardContainer populares">
               <h2 className="titulo">Películas Mejor Valoradas</h2>
               <div className="cards-row">
-                {contenido}
+              {this.state.data === "" ? (<h3>Cargando...</h3>) : (contenido)}
               </div>
               <Link className="see-all" to="/peliculasmejorvaloradas">Ver todas</Link>
             </section>
