@@ -3,7 +3,7 @@ import "./HomeStyles.css"
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import PeliculasCartelera from "../../components/PeliculasCartelera/PeliculasCartelera";
-import PeliculasPopulares from "../../components/PeliculasPopulares/PeliculasPopulares";
+import PeliculasTopRated from "../../components/PeliculasTopRated/PeliculasTopRated";
 import PopularSeries from "../../components/PopularSeries/PopularSeries";
 import TopRatedSeries from "../../components/TopRatedSeries/TopRatedSeries";
 
@@ -13,7 +13,7 @@ function Home() {
             <React.Fragment>
             <Header />
             <PeliculasCartelera />
-            <PeliculasPopulares />
+            <PeliculasTopRated/>
             <PopularSeries />
             <TopRatedSeries />
             <Footer />
