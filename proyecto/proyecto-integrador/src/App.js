@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch} from "react-router-dom";
 import Home from "./screens/Home/Home";
-import PeliculasEnCartel from "./screens/PeliculasEnCartel/PeliculasEnCartel";
+import PeliculasEnCartel from "./screens/TopPeliculasRated/TopPeliculasRated";
 import UnaPelicula from "./screens/UnaPelicula/UnaPelicula";
 import UnaSerie from "./screens/UnaSerie/UnaSerie";
 import TopSeriesRated from "./screens/TopSeriesRated/TopSeriesRated";
