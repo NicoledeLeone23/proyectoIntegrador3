@@ -16,8 +16,7 @@ class SerieDetail extends Component {
       this.verificarFavorito();
     }
   }
-
-  verificarFavorito = () => {
+  verificarFavorito() {
     if (!this.props.data) return;
 
     let favoritosEnStorage = localStorage.getItem("favoritos");
@@ -37,12 +36,12 @@ class SerieDetail extends Component {
     }
 
     this.setState({ esFavorita: existe });
-  };
+  }
 
-  mostrarFavorito = () => {
+  mostrarFavorito() {
     const movie = this.props.data;
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos;
+    let favoritos= undefined;
 
     if (favoritosEnStorage === null) {
       favoritos = [];
@@ -64,7 +63,7 @@ class SerieDetail extends Component {
       localStorage.setItem("favoritos", JSON.stringify(favoritos));
       this.setState({ esFavorita: true });
     }
-  };
+  }
   
   render() {
     const serie = this.props.data;
@@ -89,7 +88,7 @@ class SerieDetail extends Component {
             : []}
         </ul>
 
-        <p className="detail-favorite" onClick={this.mostrarFavorito}>
+        <p className="detail-favorite" onClick={() => this.mostrarFavorito()}>
           {this.state.esFavorita ? "Quitar de favoritos" : "Agregar a favoritos"}
         </p>
 
