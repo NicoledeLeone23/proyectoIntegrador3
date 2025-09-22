@@ -93,9 +93,7 @@ class PeliculaSeriesCard extends Component {
       {this.state.verDescripcion && (
         <section className="card-description">
           <p>
-            {this.props.item.overview
-              ? this.props.item.overview
-              : "Sin descripción."}
+            {this.props.item.overview}
           </p>
         </section>
       )}
