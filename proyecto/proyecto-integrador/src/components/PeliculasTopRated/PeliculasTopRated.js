@@ -36,7 +36,7 @@ class PeliculasTopRated extends Component{
               <div className="cards-row">
                 {contenido}
               </div>
-              <Link className="see-all" to="/peliculaspopulares">Ver todas</Link>
+              <Link className="see-all" to="/PeliculasTopRated">Ver todas</Link>
             </section>
           );
     }
