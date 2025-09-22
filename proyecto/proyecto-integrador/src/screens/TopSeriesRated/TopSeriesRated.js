@@ -38,7 +38,7 @@ this.setState({ seriesFiltradas: filtradas });
 
   }
 
-  cargarMas = () => {
+  cargarMas() {
     const siguientePagina = this.state.paginaActual + 1;
 
     fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
@@ -47,9 +47,9 @@ this.setState({ seriesFiltradas: filtradas });
         let nuevasSeries = [];
 
         // agregamos las viejas
-        this.state.backupSeries.map(s => nuevasSeries.push(s));
+        this.state.backupSeries.map(serie => nuevasSeries.push(serie));
         // agregamos las nuevas
-        data.results.map(s => nuevasSeries.push(s));
+        data.results.map(serie => nuevasSeries.push(serie));
 
         this.setState({
           series: nuevasSeries,
@@ -62,11 +62,11 @@ this.setState({ seriesFiltradas: filtradas });
   }
 
   render() {
-    return (
+     return (
       <React.Fragment>
         <Header />
-        <div className="peliculas-container">
-          <h1>Series Mejor Valoradas</h1>
+        <div className="peliculas-container" >         
+          <h1>Series Populares</h1>
           <Filtro filtro={(valor) => this.filtrarSeries(valor)} />
           <button className="cargar-mas-btn" onClick={() => this.cargarMas()}>
             Cargar más series
@@ -83,7 +83,9 @@ this.setState({ seriesFiltradas: filtradas });
                 ))
             }
           </div>
-        </div>
+
+
+          </div>
         <Footer />
       </React.Fragment>
     );

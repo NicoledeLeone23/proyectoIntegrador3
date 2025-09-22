@@ -48,9 +48,9 @@ this.setState({ seriesFiltradas: filtradas });
        let nuevasSeries = [];
 
         // agregamos las viejas
-        this.state.backupSeries.map(s => nuevasSeries.push(s));
+        this.state.backupSeries.map(serie => nuevasSeries.push(serie));
         // agregamos las nuevas
-        data.results.map(s => nuevasSeries.push(s));
+        data.results.map(serie => nuevasSeries.push(serie));
 
         this.setState({
           series: nuevasSeries,

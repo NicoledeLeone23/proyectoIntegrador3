@@ -32,7 +32,7 @@ class PeliculasTopRated extends Component{
     
         return (
             <section className="cardContainer populares">
-              <h2 className="titulo">Películas Top Rated</h2>
+              <h2 className="titulo">Películas Mejor Valoradas</h2>
               <div className="cards-row">
                 {contenido}
               </div>
