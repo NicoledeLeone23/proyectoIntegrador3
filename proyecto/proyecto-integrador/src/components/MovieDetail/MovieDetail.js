@@ -8,18 +8,6 @@ class MovieDetail extends Component {
   }
 
   componentDidMount() {
-    this.verificarFavorito();
-  }
-
-  componentDidUpdate(propsAnteriores) {
-    if (propsAnteriores.data !== this.props.data) {
-      this.verificarFavorito();
-    }
-  }
-
-  verificarFavorito() {
-    if (!this.props.data) return;
-
     let favoritosEnStorage = localStorage.getItem("favoritos");
     let favoritos=undefined;
 
@@ -37,6 +25,12 @@ class MovieDetail extends Component {
     }
 
     this.setState({ esFavorita: existe });
+  }
+
+  componentDidUpdate(propsAnteriores) {
+    if (propsAnteriores.data !== this.props.data) {
+      this.verificarFavorito();
+    }
   }
 
   mostrarFavorito() {
