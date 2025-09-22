@@ -25,6 +25,13 @@ class Favoritos extends Component {
     this.setState({ favoritos: favoritos });
   }
 
+  actualizar(id) {
+    this.setState({
+      favoritos: this.state.favoritos.filter(elemento => elemento.id !== id)
+    });
+  }
+
+
   render(){
     return (
         <React.Fragment>
@@ -54,7 +61,7 @@ class Favoritos extends Component {
                 <section>
                     <div className="cards-row"> 
                         {this.state.favoritos.filter(elemento => elemento.name).map(elemento => (
-                            <PeliculaSeriesCard key={elemento.id} item={elemento} />
+                            <PeliculaSeriesCard key={elemento.id} item={elemento} actualizar = {(id) => this.actualizar(id)} />
                         ))}
                     </div>
                 </section>

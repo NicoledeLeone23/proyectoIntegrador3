@@ -4,21 +4,10 @@ import "./SerieDetail.css";
 class SerieDetail extends Component {
   constructor(props){
     super(props);
-    this.state = {
-
-    }
+    this.state = {}
   }
 
   componentDidMount() {
-    this.verificarFavorito();
-  }
-
-  componentDidUpdate(propsAnteriores) {
-    if (propsAnteriores.data !== this.props.data) {
-      this.verificarFavorito();
-    }
-  }
-  verificarFavorito() {
     let favoritosEnStorage = localStorage.getItem("favoritos");
     let favoritos= undefined;
 
@@ -34,7 +23,6 @@ class SerieDetail extends Component {
         existe = true;
       }
     }
-
     this.setState({ esFavorita: existe });
   }
 
@@ -88,14 +76,7 @@ class SerieDetail extends Component {
 
         <p className="detail-favorite" onClick={() => this.mostrarFavorito()}>
           {this.state.esFavorita ? "Quitar de favoritos" : "Agregar a favoritos"}
-        </p>
-
-
-       
-            
-            
-
-        
+        </p>  
         </article>
     );
   }

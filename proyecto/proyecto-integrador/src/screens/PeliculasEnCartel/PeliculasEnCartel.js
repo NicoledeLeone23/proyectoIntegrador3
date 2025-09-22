@@ -3,9 +3,10 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Filtro from "../../components/Filtro/Filtro";
 import PeliculaSeriesCard from "../../components/PeliculaSeriesCard/PeliculaSeriesCard";
-import "./PeliculasTopRated.css";
+import "./PeliculasEnCartel.css";
+import PeliculasCartelera from "../../components/PeliculasCartelera/PeliculasCartelera";
 
-class PeliculasTopRated extends Component {
+class PeliculasEnCartel extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +18,7 @@ class PeliculasTopRated extends Component {
   }
 
   componentDidMount() {
-    fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1")
+    fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1")
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -40,7 +41,7 @@ class PeliculasTopRated extends Component {
   cargarMas() {
     const siguientePagina = this.state.paginaActual + 1;
 
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
       .then(resp => resp.json())
       .then(data => {
         let nuevasPeliculas = [];
@@ -65,7 +66,7 @@ class PeliculasTopRated extends Component {
       <React.Fragment>
         <Header />
         <div className="peliculas-container">
-          <h1>Peliculas Top Rated</h1>
+          <h1>Peliculas En Cartel</h1>
           <Filtro filtro={(valor) => this.filtrarPeliculas(valor)} />
           <button className="cargar-mas-btn" onClick={() => this.cargarMas()}>
             Cargar más películas
@@ -89,4 +90,4 @@ class PeliculasTopRated extends Component {
   }
 }
 
-export default PeliculasTopRated;
+export default PeliculasEnCartel;

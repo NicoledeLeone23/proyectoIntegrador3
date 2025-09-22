@@ -61,6 +61,10 @@ class PeliculaSeriesCard extends Component {
       localStorage.setItem("favoritos", JSON.stringify(favoritos));
       this.setState({ esFavorita: true });
     }
+
+    if (this.props.onRemove) {
+      this.props.onRemove(this.props.item.id);
+    }
   };
 
 

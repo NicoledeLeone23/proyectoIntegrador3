@@ -17,7 +17,7 @@ class PeliculasEnCartel extends Component {
   }
 
   componentDidMount() {
-    fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1")
+    fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1")
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -40,7 +40,7 @@ class PeliculasEnCartel extends Component {
   cargarMas() {
     const siguientePagina = this.state.paginaActual + 1;
 
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
+    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
       .then(resp => resp.json())
       .then(data => {
         let nuevasPeliculas = [];
@@ -64,7 +64,7 @@ class PeliculasEnCartel extends Component {
       <React.Fragment>
         <Header />
         <div className="peliculas-container">
-          <h1>Películas en Cartel</h1>
+          <h1>Pelicula en Cartel</h1>
           <Filtro filtro={(valor) => this.filtrarPeliculas(valor)} />
           <button className="cargar-mas-btn" onClick={() => this.cargarMas()}>
             Cargar más películas

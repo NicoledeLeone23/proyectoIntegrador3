@@ -9,7 +9,7 @@ import SeriesPopulares from "./screens/SeriesPopulares/SeriesPopulares";
 import NotFound from "./screens/NotFound/NotFound";
 import Resultado from "./screens/Resultado/Resultado";
 import Favoritos from "./screens/Favoritos/Favoritos";
-import PeliculasTopRated from "./screens/PeliculasTopRated/PeliculasTopRated";
+import TopPeliculasRated from "./screens/TopPeliculasRated/TopPeliculasRated";
 
 
 
@@ -19,7 +19,7 @@ function App() {
     <Switch>
       <Route path= "/" exact={true} component={Home}/>
       <Route path= "/peliculasencartel" component={PeliculasEnCartel}/>
-      <Route path= "/PeliculasTopRated" component={PeliculasTopRated}/>
+      <Route path= "/peliculastoprated" component={TopPeliculasRated}/>
       <Route path= "/seriespopulares" component={SeriesPopulares} />
       <Route path= "/topratedseries" component ={TopSeriesRated}/>
       <Route path="/resultado/:tipo/:busqueda" component={Resultado} />
