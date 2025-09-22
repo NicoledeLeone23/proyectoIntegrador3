@@ -25,23 +25,33 @@ class Favoritos extends Component {
     this.setState({ favoritos: favoritos });
   }
 
+<<<<<<< HEAD
 
+=======
+  actualizar(id){
+
+  }
+>>>>>>> 037930952002b1af98c65faacbf6884db63e1abf
 
   render(){
+
+    console.log(this.state.favoritos.length);
+    
+
     return (
         <React.Fragment>
           <Header />
   
           <div className="favoritos-container">
             <h1>Mis Favoritos</h1>
-  
-            {this.state.favoritos.filter(elemento => elemento.title).length > 0 ? (
+            {this.state.favoritos.length === 0 ? <h3>Cargando..</h3>: 
+            this.state.favoritos.filter(elemento => elemento.title).length > 0 ? (
               <div className="favoritos-seccion">
                 <h2>Películas en Favoritos</h2>
                 <section>
                     <div className="cards-row"> 
                         {this.state.favoritos.filter(elemento => elemento.title).map(elemento => (
-                            <PeliculaSeriesCard key={elemento.id} item={elemento} />
+                            <PeliculaSeriesCard key={elemento.id}  item={elemento} />
                         ))}
                     </div>
                 </section>
@@ -49,7 +59,7 @@ class Favoritos extends Component {
             ) : (
               <p> No tenés películas favoritas </p>
             )}
-
+            
             {this.state.favoritos.filter(elemento => elemento.name).length > 0 ? (
               <div className="favoritos-seccion">
                 <h2>Series en Favoritos</h2>
@@ -64,7 +74,9 @@ class Favoritos extends Component {
             ) : (
               <p> No tenés series favoritas </p>
             )}
+            
           </div>
+          
         <Footer />
         </React.Fragment>
       );

@@ -9,64 +9,51 @@ class Resultado extends Component {
     super(props);
     this.state = {
       busqueda: props.match.params.busqueda,
+      tipo: props.match.params.tipo, 
       resultados: []
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/search/multi?query=${this.state.busqueda}&api_key=0e24f8864be45bfee7d05660d5fc8739`)
+    const busqueda = this.state.busqueda;
+    const tipo = this.state.tipo;
+    let url = "";
+    if (tipo === "movie") {
+      url = `https://api.themoviedb.org/3/search/movie?query=${busqueda}&api_key=0e24f8864be45bfee7d05660d5fc8739`;
+    } else if (tipo === "tv") {
+      url = `https://api.themoviedb.org/3/search/tv?query=${busqueda}&api_key=0e24f8864be45bfee7d05660d5fc8739`;
+    }
+
+    fetch(url)
       .then(res => res.json())
-      .then(data => {this.setState({ resultados: data.results })})
+      .then(data => this.setState({ resultados: data.results }))
       .catch(err => console.log(err));
   }
 
-render() {
-  const peliculas = this.state.resultados.filter(elm => elm.media_type === "movie");
-  const series = this.state.resultados.filter(elm => elm.media_type === "tv");
+  render() {
+    return (
+      <React.Fragment>
+        <Header />
 
-  return (
-    <React.Fragment>
-      <Header />
+        <div className="resultado-container">
+          {this.state.resultados.length === 0 ? (
+            <h3>Cargando...</h3>
+          ) : (
+            <div className="resultado-seccion">
+              <h2>{this.state.tipo === "movie" ? "PELÍCULAS" : "SERIES"}</h2>
+              <section>
+                {this.state.resultados.map(item => (
+                  <PeliculaSeriesCard key={item.id} item={item} />
+                ))}
+              </section>
+            </div>
+          )}
+        </div>
 
-      <div className="resultado-container">
-        {this.state.resultados.length === 0 ? (
-          <h3>Cargando...</h3>
-        ) : (
-          <React.Fragment>
-            {peliculas.length > 0 ? (
-              <div className="resultado-seccion">
-                <h2>PELÍCULAS</h2>
-                <section>
-                  {peliculas.map(elm => (
-                    <PeliculaSeriesCard key={elm.id} item={elm} />
-                  ))}
-                </section>
-              </div>
-            ) : (
-              <p>No se encontraron películas</p>
-            )}
-
-            {series.length > 0 ? (
-              <div className="resultado-seccion">
-                <h2>SERIES</h2>
-                <section>
-                  {series.map(elm => (
-                    <PeliculaSeriesCard key={elm.id} item={elm} />
-                  ))}
-                </section>
-              </div>
-            ) : (
-              <p>No se encontraron series</p>
-            )}
-          </React.Fragment>
-        )}
-      </div>
-
-      <Footer />
-    </React.Fragment>
-  );
-}
-
+        <Footer />
+      </React.Fragment>
+    );
+  }
 }
 
 export default Resultado;

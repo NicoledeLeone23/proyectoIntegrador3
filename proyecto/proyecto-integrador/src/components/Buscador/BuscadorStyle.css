@@ -16,6 +16,10 @@
     outline: none;
 }
 
+.label{
+    color:#fff;
+    margin-right: 10px;
+}
 
 .buscador-button {
     padding: 5px 12px;

@@ -10,6 +10,18 @@ class SerieDetail extends Component {
   }
 
   componentDidMount() {
+<<<<<<< HEAD
+    this.verificarFavorito();
+  }
+
+  componentDidUpdate(propsAnteriores) {
+    if (propsAnteriores.data !== this.props.data) {
+      this.verificarFavorito();
+    }
+  }
+  verificarFavorito() {
+=======
+>>>>>>> ad1e3133a9853f9dd55e48fb8047ba8a0cb2b499
     let favoritosEnStorage = localStorage.getItem("favoritos");
     let favoritos= undefined;
 
@@ -72,8 +84,13 @@ class SerieDetail extends Component {
         <p>Sinopsis: {this.props.data.overview}</p>
         <p><strong>Géneros:</strong></p>
         <ul>
+<<<<<<< HEAD
+        {serie.genres.length > 0
+            ? serie.genres.map((genero,i) => <li key={genero.i}>{genero.name}</li>)
+=======
         {this.props.data.genres.length > 0
             ? this.props.data.genres.map((genero,i) => <li key={genero+i}>{genero.name}</li>)
+>>>>>>> ad1e3133a9853f9dd55e48fb8047ba8a0cb2b499
             : []}
         </ul>
 
