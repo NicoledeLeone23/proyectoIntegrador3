@@ -4,7 +4,7 @@ import "./MovieDetail.css";
 class MovieDetail extends Component {
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = { }
   }
 
   componentDidMount() {

@@ -16,27 +16,20 @@ class Resultado extends Component {
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/search/multi?query=${this.state.busqueda}&api_key=0e24f8864be45bfee7d05660d5fc8739`)
       .then(res => res.json())
-      .then(data => {
-        if (data !== "") {
-            this.setState({ resultados: data.results });
-        } else {
-          this.setState({ resultados: [] });
-        }
-      })
+      .then(data => {this.setState({ resultados: data.results })})
       .catch(err => console.log(err));
   }
 
 render() {
-  const resultados = this.state.resultados;
-  const peliculas = resultados.filter(elm => elm.media_type === "movie");
-  const series = resultados.filter(elm => elm.media_type === "tv");
+  const peliculas = this.state.resultados.filter(elm => elm.media_type === "movie");
+  const series = this.state.resultados.filter(elm => elm.media_type === "tv");
 
   return (
     <React.Fragment>
       <Header />
 
       <div className="resultado-container">
-        {resultados.length === 0 ? (
+        {this.state.resultados.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
           <React.Fragment>
