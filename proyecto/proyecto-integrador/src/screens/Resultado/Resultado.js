@@ -27,9 +27,6 @@ class Resultado extends Component {
   }
 
 render() {
-  const peliculas = this.state.resultados.filter(elm => elm.media_type === "movie");
-  const series = this.state.resultados.filter(elm => elm.media_type === "tv");
-
   return (
     <React.Fragment>
       <Header />
@@ -39,31 +36,37 @@ render() {
           <h3>Cargando...</h3>
         ) : (
           <React.Fragment>
-            {peliculas.length > 0 ? (
-              <div className="resultado-seccion">
-                <h2>PELÍCULAS</h2>
-                <section>
-                  {peliculas.map(elm => (
-                    <PeliculaSeriesCard key={elm.id} item={elm} />
-                  ))}
-                </section>
-              </div>
-            ) : (
-              <p>No se encontraron películas</p>
-            )}
+            {this.state.resultados.filter(elm => elm.media_type === "movie").length > 0
+              ? (
+                <div className="resultado-seccion">
+                  <h2>PELÍCULAS</h2>
+                  <section>
+                    {this.state.resultados
+                      .filter(elm => elm.media_type === "movie")
+                      .map(elm => (
+                        <PeliculaSeriesCard key={elm.id} item={elm} />
+                      ))}
+                  </section>
+                </div>
+              )
+              : <p>No se encontraron películas</p>
+            }
 
-            {series.length > 0 ? (
-              <div className="resultado-seccion">
-                <h2>SERIES</h2>
-                <section>
-                  {series.map(elm => (
-                    <PeliculaSeriesCard key={elm.id} item={elm} />
-                  ))}
-                </section>
-              </div>
-            ) : (
-              <p>No se encontraron series</p>
-            )}
+            {this.state.resultados.filter(elm => elm.media_type === "tv").length > 0
+              ? (
+                <div className="resultado-seccion">
+                  <h2>SERIES</h2>
+                  <section>
+                    {this.state.resultados
+                      .filter(elm => elm.media_type === "tv")
+                      .map(elm => (
+                        <PeliculaSeriesCard key={elm.id} item={elm} />
+                      ))}
+                  </section>
+                </div>
+              )
+              : <p>No se encontraron series</p>
+            }
           </React.Fragment>
         )}
       </div>
@@ -72,7 +75,6 @@ render() {
     </React.Fragment>
   );
 }
-
 }
 
 export default Resultado;

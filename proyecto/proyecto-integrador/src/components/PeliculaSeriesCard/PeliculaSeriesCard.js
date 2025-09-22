@@ -13,7 +13,7 @@ class PeliculaSeriesCard extends Component {
 
   componentDidMount() {
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos = undefined;
+    let favoritos;
 
     if (favoritosEnStorage === null) {
       favoritos = [];
@@ -33,13 +33,13 @@ class PeliculaSeriesCard extends Component {
     }
   }
 
-  mostrarDescripcion() {
+  mostrarDescripcion = () => {
     this.setState({ verDescripcion: !this.state.verDescripcion });
-  }
+  };
 
-  favorita() {
+  favorita = () => {
     let favoritosEnStorage = localStorage.getItem("favoritos");
-    let favoritos = undefined;
+    let favoritos;
 
     if (favoritosEnStorage === null) {
       favoritos = [];
@@ -61,19 +61,20 @@ class PeliculaSeriesCard extends Component {
       localStorage.setItem("favoritos", JSON.stringify(favoritos));
       this.setState({ esFavorita: true });
     }
-  }
+  };
 
 
  render() {
-    let titulo = undefined;
-    let ruta = undefined;
+
+    let titulo;
+    let ruta;
       if (this.props.item.title) {
-        titulo = this.props.item.title; //referencia a peliculas
-        ruta = `/pelicula/${this.props.item.id}`
-      } else {
-      titulo = this.props.item.name; // referencia a series   
-      ruta = `/serie/${this.props.item.id}`
-      }
+  titulo = this.props.item.title; //referencia a peliculas
+  ruta = `/pelicula/${this.props.item.id}`
+  } else {
+  titulo = this.props.item.name; // referencia a series 
+  ruta = `/serie/${this.props.item.id}`
+}
 
     return (
       <article  className="card" >
@@ -84,8 +85,8 @@ class PeliculaSeriesCard extends Component {
 
         <h2 className="card-title" >{titulo}</h2>
 
-        <p className="card-favorite" onClick={() => this.favorita()}>
-          {this.state.esFavorita ? "Quitar de favoritos" : "Agregar a favoritos"}
+        <p className="card-toggle-desc" onClick={this.mostrarDescripcion}>
+          {this.state.verDescripcion ? "Ver menos" : "Ver descripción"}
         </p>
 
         {this.state.verDescripcion && (
@@ -95,10 +96,10 @@ class PeliculaSeriesCard extends Component {
         )}
 
         <p className="card-link" >
-          <Link to={ruta}> Ir a detalle </Link>
+          <Link to={ruta}>Ir a detalle</Link>
         </p>
 
-        <p className="card-favorite" onClick={() => this.favorita()}>
+        <p className="card-favorite" onClick={this.favorita}>
           {this.state.esFavorita ? "Quitar de favoritos" : "Agregar a favoritos"}
         </p>
       </article>
