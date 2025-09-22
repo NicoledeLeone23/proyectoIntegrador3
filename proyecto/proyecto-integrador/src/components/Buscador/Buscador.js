@@ -11,7 +11,7 @@ class Buscador extends Component {
   }
 
   controlarForm(e){
-    e.preventDefault();
+   e.preventDefault();
     this.props.history.push("/resultado/" + this.state.input);
   };
 

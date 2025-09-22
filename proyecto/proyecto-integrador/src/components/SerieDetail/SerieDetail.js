@@ -17,8 +17,6 @@ class SerieDetail extends Component {
     }
   }
   verificarFavorito() {
-    if (!this.props.data) return;
-
     let favoritosEnStorage = localStorage.getItem("favoritos");
     let favoritos= undefined;
 
@@ -83,7 +81,7 @@ class SerieDetail extends Component {
         <p>Sinopsis: {serie.overview}</p>
         <p><strong>Géneros:</strong></p>
         <ul>
-        {serie.genres && serie.genres.length > 0
+        {serie.genres.length > 0
             ? serie.genres.map((genero,i) => <li key={genero.i}>{genero.name}</li>)
             : []}
         </ul>
