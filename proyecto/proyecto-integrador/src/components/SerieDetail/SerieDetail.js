@@ -24,12 +24,6 @@ class SerieDetail extends Component {
     }
   }
 
-  componentDidUpdate(propsAnteriores) {
-    if (propsAnteriores.data !== this.props.data) { //ver ver ver
-      this.verificarFavorito();
-    }
-  }
-
   mostrarFavorito() {
     const movie = this.props.data;
     let favoritosEnStorage = localStorage.getItem("favoritos");

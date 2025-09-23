@@ -15,7 +15,6 @@ class Resultado extends Component {
   }
 
   componentDidMount() {
-
     // dependiendo de que input toco el usuario va a asignarle la api que coresponda 
     let url = "";
     if (this.state.tipo === "movie") {

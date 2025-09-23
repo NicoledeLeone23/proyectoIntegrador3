@@ -35,8 +35,8 @@ class SeriesPopulares extends Component {
   // filter para comparar el valor que puso el usuario con la api 
    const filtradas = this.state.backupSeries.filter(serie =>
   serie.name.toLowerCase().includes(valorInput.toLowerCase())
-);
-this.setState({ seriesFiltradas: filtradas });
+  );
+  this.setState({ seriesFiltradas: filtradas });
 
   }
 
