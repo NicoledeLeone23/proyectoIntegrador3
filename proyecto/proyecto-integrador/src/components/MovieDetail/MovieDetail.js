@@ -4,13 +4,13 @@ import "./MovieDetail.css";
 class MovieDetail extends Component {
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {esFavorita : false};
   }
 
   componentDidMount() {
     let favoritosEnStorage = localStorage.getItem("favoritos");
     let favoritos=undefined;
-
+    
     if (favoritosEnStorage === null) {
       favoritos = [];
     } else {

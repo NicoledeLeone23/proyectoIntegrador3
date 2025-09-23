@@ -31,6 +31,7 @@ class TopPeliculasRated extends Component {
   }
 
   filtrarPeliculas(valorInput) {
+    // filter para comparar el valor que puso el usuario con la api 
     const filtradas = this.state.backupPeliculas.filter(pelicula =>
       pelicula.title.toLowerCase().includes(valorInput.toLowerCase())
     );
@@ -38,16 +39,17 @@ class TopPeliculasRated extends Component {
   }
 
   cargarMas() {
+     // para que vayan sumando nuevas items 
     const siguientePagina = this.state.paginaActual + 1;
-
     fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
       .then(resp => resp.json())
       .then(data => {
+         // array con la informacion de las series que ya estan,  mas las nuevas 
         let nuevasPeliculas = [];
        // peliculas viejas
-        this.state.backupPeliculas.map(p => nuevasPeliculas.push(p));
+        this.state.backupPeliculas.map(peliculas => nuevasPeliculas.push(peliculas));
         // peliculas nuevas
-        data.results.map(p => nuevasPeliculas.push(p));
+        data.results.map(peliculas => nuevasPeliculas.push(peliculas));
 
         this.setState({
           peliculas: nuevasPeliculas,

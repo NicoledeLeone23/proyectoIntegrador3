@@ -32,6 +32,7 @@ class SeriesPopulares extends Component {
   }
 
  filtrarSeries(valorInput) {
+  // filter para comparar el valor que puso el usuario con la api 
    const filtradas = this.state.backupSeries.filter(serie =>
   serie.name.toLowerCase().includes(valorInput.toLowerCase())
 );
@@ -40,13 +41,14 @@ this.setState({ seriesFiltradas: filtradas });
   }
 
   cargarMas(){
+    // para que vayan sumando nuevas items 
     const siguientePagina = this.state.paginaActual + 1;
     fetch(`https://api.themoviedb.org/3/tv/popular?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=${siguientePagina}`)
       .then(resp => resp.json())
       .then(data => {
         
+        // array con la informacion de las series que ya estan,  mas las nuevas 
        let nuevasSeries = [];
-
         // agregamos las viejas
         this.state.backupSeries.map(serie => nuevasSeries.push(serie));
         // agregamos las nuevas

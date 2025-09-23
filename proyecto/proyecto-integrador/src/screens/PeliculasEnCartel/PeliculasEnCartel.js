@@ -45,9 +45,9 @@ class PeliculasEnCartel extends Component {
       .then(data => {
         let nuevasPeliculas = [];
        // peliculas viejas
-        this.state.backupPeliculas.map(p => nuevasPeliculas.push(p));
+        this.state.backupPeliculas.map(peliculas => nuevasPeliculas.push(peliculas));
         // peliculas nuevas
-        data.results.map(p => nuevasPeliculas.push(p));
+        data.results.map(peliculas => nuevasPeliculas.push(peliculas));
 
         this.setState({
           peliculas: nuevasPeliculas,

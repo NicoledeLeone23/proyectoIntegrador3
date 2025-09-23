@@ -15,13 +15,13 @@ class Resultado extends Component {
   }
 
   componentDidMount() {
-    const busqueda = this.state.busqueda;
-    const tipo = this.state.tipo;
+
+    // dependiendo de que input toco el usuario va a asignarle la api que coresponda 
     let url = "";
-    if (tipo === "movie") {
-      url = `https://api.themoviedb.org/3/search/movie?query=${busqueda}&api_key=0e24f8864be45bfee7d05660d5fc8739`;
-    } else if (tipo === "tv") {
-      url = `https://api.themoviedb.org/3/search/tv?query=${busqueda}&api_key=0e24f8864be45bfee7d05660d5fc8739`;
+    if (this.state.tipo === "movie") {
+      url = `https://api.themoviedb.org/3/search/movie?query=${this.state.busqueda}&api_key=0e24f8864be45bfee7d05660d5fc8739`;
+    } else if (this.state.tipo === "tv") {
+      url = `https://api.themoviedb.org/3/search/tv?query=${this.state.busqueda}&api_key=0e24f8864be45bfee7d05660d5fc8739`;
     }
 
     fetch(url)

@@ -15,7 +15,7 @@ class Filtro extends Component {
   }
 
   controlarInput(evento) {
-    this.setState({ valorInput: evento.target.value }); //set state guarda lo que escribe el usuario
+    this.setState({ valorInput: evento.target.value }); // guarda lo que escribe el usuario
     this.props.filtro(evento.target.value); //le manda la información al componente hijo
   }
 

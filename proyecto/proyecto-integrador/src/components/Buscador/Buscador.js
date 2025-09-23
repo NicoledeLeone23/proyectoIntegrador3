@@ -11,40 +11,40 @@ class Buscador extends Component {
     };
   }
 
-  controlarForm(e) {
+  controlarForm(evento) {
     if (this.state.tipo === "") {
-      e.preventDefault(); 
+      evento.preventDefault(); 
     }
     this.props.history.push(`/resultado/${this.state.tipo}/${this.state.input}`);
   }
 
-  controlarInput(e) {
-    this.setState({ input: e.target.value }); //guarda el input del usuario
+  controlarInput(eventoo) {
+    this.setState({ input: eventoo.target.value }); //guarda el input del usuario
   }
 
-  controlarTipo(e) {
-    this.setState({ tipo: e.target.value }); //guarda el tipo si serie o peli
+  controlarTipo(eventooo) {
+    this.setState({ tipo: eventooo.target.value }); //guarda el tipo si serie o peli
   }
 
   render() {
     return (
-      <form className="buscador-form" onSubmit={(e) => this.controlarForm(e)}>
+      <form className="buscador-form" onSubmit={(evento) => this.controlarForm(evento)}>
         <input
           className="buscador-input"
           placeholder="Buscador"
           value={this.state.input}
-          onChange={(e) => this.controlarInput(e)}
+          onChange={(eventoo) => this.controlarInput(eventoo)}
         />
 
         <input type="radio"
           value="tv"
-          onChange={(e) => this.controlarTipo(e)}
+          onChange={(eventooo) => this.controlarTipo(eventooo)}
         />
         <label className ="label">Series</label> <br/>
 
         <input type="radio"
           value="movie"
-          onChange={(e) => this.controlarTipo(e)}
+          onChange={(eventooo) => this.controlarTipo(eventooo)}
         />
         <label className ="label">Películas</label> <br/>
 
