@@ -13,10 +13,10 @@ class UnaSerie extends Component {
     }
 
     componentDidMount() {
-      const  id  = this.props.match.params.id; 
+      const  id  = this.props.match.params.id; // consigo el id de la serie elegida
       fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES`)
         .then(res => res.json())
-        .then(data => this.setState({ data: data }))
+        .then(data => this.setState({ data: data }))  // que data sea la info que trae la api de la serie
         .catch(err => console.log(err));
     }
   

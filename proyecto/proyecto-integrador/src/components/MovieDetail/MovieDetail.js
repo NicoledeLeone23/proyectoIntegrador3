@@ -62,6 +62,7 @@ class MovieDetail extends Component {
           <p className="sinopsis"> <strong>Sinopsis:</strong> {this.props.data.overview} </p>
           <p> <strong> Géneros:</strong> </p>
           <ul>
+          {/* los generos venian en un array asique los recorro  */}
             {this.props.data.genres.length > 0
                 ? this.props.data.genres.map((genero,i) => <li key={genero+i}>{genero.name}</li>)
                 : <h3>No hay géneros cargados</h3>}
