@@ -53,14 +53,14 @@
 
 @media (max-width: 992px) {
     .card {
-        width: 45%; /* 2 por fila */
+        width: 45%; 
     }
 }
 
 
 @media (max-width: 576px) {
     .card {
-        width: 100%; /* ocupa todo el ancho */
+        width: 100%; 
         margin: 8px 0;
     }
 

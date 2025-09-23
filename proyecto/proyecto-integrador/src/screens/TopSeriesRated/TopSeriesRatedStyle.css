@@ -46,10 +46,11 @@
         padding: 8px 16px;
     }
 
-    .cards-container > * {
-        flex: 1 1 200px;
-        margin: 10px;
-    }
+   .cards-container div {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
 }
 
 @media (max-width: 576px) {
@@ -67,11 +68,12 @@
         align-items: center;
     }
 
-    .cards-container > * {
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin: 6px 0;
-    }
+   .cards-container div {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin: 6px 0;
+}
+
 
     .cargar-mas-btn {
         width: 100%;

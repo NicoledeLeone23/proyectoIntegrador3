@@ -31,11 +31,12 @@
     justify-content: center;
 }
 
-.resultado-container section > * {
+.cards-container div {
     margin: 12px;
     flex: 1 1 250px;
     max-width: 300px;
 }
+
 
 @media (max-width: 992px) {
     .resultado-container h1 {
@@ -43,10 +44,11 @@
         margin-bottom: 24px;
     }
 
-    .resultado-container section > * {
-        flex: 1 1 220px;
-        margin: 10px;
-    }
+   .resultado-container section div {
+    flex: 1 1 220px;
+    margin: 10px;
+}
+
 }
 
 @media (max-width: 576px) {
@@ -64,9 +66,10 @@
         align-items: center;
     }
 
-    .resultado-container section > * {
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin: 6px 0;
-    }
+  .resultado-container section div {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin: 6px 0;
+}
+
 }

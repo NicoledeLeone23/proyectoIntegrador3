@@ -16,13 +16,13 @@ footer p {
 
 @media (max-width: 768px) {
   footer p {
-    font-size: 14px; /* un poco más chico en tablets */
+    font-size: 14px; 
   }
 }
 
 @media (max-width: 480px) {
   footer {
-    padding: 15px; /* menos padding en celular */
+    padding: 15px; 
   }
 
   footer p {
