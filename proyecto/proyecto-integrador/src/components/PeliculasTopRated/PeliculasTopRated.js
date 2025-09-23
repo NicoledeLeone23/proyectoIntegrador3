@@ -22,7 +22,7 @@ class TopRatedSeries extends Component {
   render() {
     let contenido;
 
-    if (this.state.data.length === 0) {
+    if (this.state.data.length === 0) { // si esta vacio muestro el cargando
       contenido = <h3>Cargando...</h3>;
     } else {
       const cards = [];

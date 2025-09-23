@@ -14,12 +14,12 @@ class Favoritos extends Component {
   }
 
   componentDidMount() {
-    let favoritosEnStorage = localStorage.getItem("favoritos");
+    let favoritosEnStorage = localStorage.getItem("favoritos"); //busca los favoritos guardados en el storage
     let favoritos=undefined;
     if (favoritosEnStorage === null) {
       favoritos = [];
     } else {
-      favoritos = JSON.parse(favoritosEnStorage);
+      favoritos = JSON.parse(favoritosEnStorage); //tranforma a JSON
     }
 
     this.setState({ favoritos: favoritos });
@@ -32,7 +32,8 @@ class Favoritos extends Component {
   
           <div className="favoritos-container">
             <h1>Mis Favoritos</h1>
-  
+            
+            {/* filtro por películas */}
             {this.state.favoritos.filter(elemento => elemento.title).length > 0 ? (
               <div className="favoritos-seccion">
                 <h2>Películas en Favoritos</h2>
@@ -48,6 +49,8 @@ class Favoritos extends Component {
               <p> No tenés películas favoritas </p>
             )}
 
+
+            {/* filtro por series */}
             {this.state.favoritos.filter(elemento => elemento.name).length > 0 ? (
               <div className="favoritos-seccion">
                 <h2>Series en Favoritos</h2>

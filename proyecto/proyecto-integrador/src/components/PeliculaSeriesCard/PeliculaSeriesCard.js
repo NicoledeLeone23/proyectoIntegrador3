@@ -42,15 +42,15 @@ class PeliculaSeriesCard extends Component {
       favoritos = JSON.parse(favoritosEnStorage);
     }
 
-    if (this.state.esFavorita) {
+    if (this.state.esFavorita) { // si ya esta en fav lo saco sino lo agrego
       let nuevosFavs = [];
       for (let i = 0; i < favoritos.length; i++) {
         if (favoritos[i].id !== this.props.item.id) {
-          nuevosFavs.push(favoritos[i]);
+          nuevosFavs.push(favoritos[i]); // me fijo el id que quiero sacar y lo comparo con los demás y los agrego a nuevosFavs 
         }
       }
-      localStorage.setItem("favoritos", JSON.stringify(nuevosFavs));
-      this.setState({ esFavorita: false });
+      localStorage.setItem("favoritos", JSON.stringify(nuevosFavs)); //actualizo el storage con la nueva lista
+      this.setState({ esFavorita: false }); 
     } else {
       favoritos.push(this.props.item);
       localStorage.setItem("favoritos", JSON.stringify(favoritos));
@@ -86,7 +86,7 @@ class PeliculaSeriesCard extends Component {
         {this.state.verDescripcion ? "Ver menos" : "Ver descripción"}
       </p>
       
-      {this.state.verDescripcion && (
+      {this.state.verDescripcion && ( //si descripcion es true muestro la descripcion
         <section className="card-description"> 
           <p>
             {this.props.item.overview}

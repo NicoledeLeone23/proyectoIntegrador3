@@ -8,7 +8,7 @@ class SerieDetail extends Component {
   }
 
   componentDidMount() {
-    let favoritosEnStorage = localStorage.getItem("favoritos");
+    let favoritosEnStorage = localStorage.getItem("favoritos"); //busca los favoritos guardados en el storage
     let favoritos= undefined;
 
     if (favoritosEnStorage === null) {
@@ -17,9 +17,9 @@ class SerieDetail extends Component {
       favoritos = JSON.parse(favoritosEnStorage);
     }
 
-    for (let i = 0; i < favoritos.length; i++) {
-      if (favoritos[i].id === this.props.data.id) {
-        this.setState({esFavorita : true})
+    for (let i = 0; i < favoritos.length; i++) { 
+      if (favoritos[i].id === this.props.data.id) {  
+        this.setState({esFavorita : true}) // si encuentra la pelicula en favoritos cambia el estado
       }
     }
   }
