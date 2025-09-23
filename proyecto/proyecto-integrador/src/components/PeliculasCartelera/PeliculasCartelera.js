@@ -6,7 +6,7 @@ class PeliculasCartelera extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [], // inicializamos como array
+      data: [], 
     };
   }
 
