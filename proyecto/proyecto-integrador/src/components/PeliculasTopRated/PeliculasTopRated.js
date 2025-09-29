@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PeliculaSeriesCard from "../PeliculaSeriesCard/PeliculaSeriesCard";
 import { Link } from "react-router-dom";
 
-class TopRatedSeries extends Component {
+class PeliculasTopRated extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ class TopRatedSeries extends Component {
 
   componentDidMount() {
     fetch(
-      "https://api.themoviedb.org/3/tv/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1"
+      "https://api.themoviedb.org/3/movie/top_rated?api_key=0504f3c6e1a5148aa088833579916ded&language=es-ES&page=1"
     )
       .then((response) => response.json())
       .then((data) => this.setState({ data: data.results }))
@@ -38,9 +38,9 @@ class TopRatedSeries extends Component {
 
     return (
       <section className="cardContainer populares">
-        <h2 className="titulo">Series Mejor Valoradas</h2>
+        <h2 className="titulo">Peliculas Mejor Valoradas</h2>
         <div className="cards-row">{contenido}</div>
-        <Link className="see-all" to="/seriesmejorvaloradas">
+        <Link className="see-all" to="/peliculasmejorvaloradas">
           Ver todas
         </Link>
       </section>
@@ -48,4 +48,4 @@ class TopRatedSeries extends Component {
   }
 }
 
-export default TopRatedSeries;
+export default PeliculasTopRated;
